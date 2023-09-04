@@ -1,9 +1,10 @@
 import React from 'react'
+import Main from '../components/Main'
 
 export default function Hem() {
   return (
     <div>
-       <h1>Hem</h1> 
+    <Main/>
     </div>
   )
 }

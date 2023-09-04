@@ -1,9 +1,16 @@
 import React from 'react'
+import style from './Boka.css'
 
 export default function Boka() {
   return (
-    <div>
-       <h1> Boka nu </h1> 
-    </div>
+    <main>
+      <form className='boknings-form'>
+        <label> Välj dag:</label>
+        <input type='date'/>
+        <label> </label>
+      
+      
+      </form>
+    </main>
   )
 }

@@ -1,0 +1,107 @@
+
+
+.header {
+    background: var(--background-header);
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+   text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 1px 1px rgba(183, 175, 131, 0.572);
+
+}
+.logo-name {
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+.logo {
+   margin-top: 10px;
+    width: 100px;
+    height: 100px;
+   
+}
+
+.nav-ul {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    padding: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.nav-li{
+ padding: 10px;
+ margin-bottom: 10px;
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover{
+   
+  scale: 1.2;
+  color: rgba(0, 0, 0, 0.493);
+  cursor: pointer;
+  transform: 2ms;
+}
+.footer {
+  
+    display: flex;
+    grid-template-columns: 33%, 33% 33%;
+    margin-top: 50px;
+      background: var(--background-header);
+      text-transform: uppercase;
+      bottom: 0;
+      width: 100%; 
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.249);  
+      ;
+  
+  }
+  
+ 
+.logo-aside{
+    width: 200px;
+    height: 170px;
+   align-items: center;
+   justify-content: center;
+   margin: 25px;
+}
+.section{
+   
+   padding: 30px;
+   margin-top: 40px;
+ 
+}
+
+.open-hours h3 {
+    padding: 10px;
+
+   
+}
+
+.open-hours ul li {
+    padding: 5px;
+    text-transform: lowercase;
+
+    list-style: none;
+
+   
+}
+
+.news-letter{
+    text-transform: none;
+}
+
+.news-letter-btn {
+    padding: 5px;
+    margin-top: 10px;
+
+}

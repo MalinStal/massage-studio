@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: var(--background-main);
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+:root {
+
+    --background-header: rgba(213, 203, 171, 0.557);
+    --background-main: rgba(226, 226, 218, 0.806);
+    --background-aside: rgba(213, 203, 171, 0.312);
+}
+main {
+    
+}

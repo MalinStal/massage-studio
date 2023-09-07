@@ -47,6 +47,13 @@ const {name, value} = e.target;
 
 setTime((option) => ({...option, [name]:value}))
 } 
+//-------handel submit ------------
+const [formData,setFormData] = useState([]); 
+
+const handelSubmit = () => {
+setFormData([...formData, {behandling, time}])
+console.log(formData)
+}
 // --------------- navigate to new page ---------------------------------
 const navigate = useNavigate();
 const handelClick = e => {navigate("/Boka2")}
@@ -54,8 +61,8 @@ const handelClick = e => {navigate("/Boka2")}
   // ----- return ------
   return (
     <main>
-      <h3>Boka tid:</h3>
-      <form className='boknings-form'>
+      <h3 className='headline'>Boka Tid:</h3>
+      <form className='boknings-form' onSubmit={handelSubmit}>
         <label className='form-label'> Välj datum: </label>
         <input 
         className='form-date form-label'
@@ -85,7 +92,7 @@ const handelClick = e => {navigate("/Boka2")}
           </option>
           {väljTime}
           </select>
-        <button className='boka-btn serch-btn' onClick={handelClick}>Sök</button>
+        <button type="submit" className='boka-btn serch-btn'onClick={handelClick} >Sök</button>
       
       
       

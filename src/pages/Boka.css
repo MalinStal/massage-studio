@@ -5,9 +5,17 @@
     padding: 50px;
     margin: 60px;
     border: 1px solid;
+    margin-bottom: 10px;
     
 }
 .serch-btn {
     margin-top: 20px;
     width: 300px;
+}
+.form-input {
+    width: 80%;
+    padding: 7px;
+    border: none;
+  
+    border-radius: 20px;
 }

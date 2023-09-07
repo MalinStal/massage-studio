@@ -19,3 +19,42 @@ export default function Form({
     
   );
 }
+
+
+/*export default function Form({
+ form,
+ handelChangeChange,
+ HandelSubmit, 
+ state1,
+  setstate1,
+  state1value,
+ state2,
+ setstate2,
+ state2value
+}) {
+
+  const [{state1},{setstate1}] = useState({state1value});
+  const [{state2},{setstate2}]= useState([]);  
+  const {handelChange}= (event => {
+    const { name, value } = event.target;
+    {setstate1}(({state1}) => ({...{state1}, [name]: value}))
+    
+  })
+ 
+
+  const {HandelSubmit} = event => {
+   event.preventDefault() 
+   {setstate2}([...{state2}, {state1}]);
+    
+   {setstate1}({state1value})
+   
+  }
+
+  return (
+   <>
+   {form}
+   </>
+    
+  );
+}
+*/

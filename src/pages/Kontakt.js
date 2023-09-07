@@ -17,18 +17,21 @@ export default function Kontakt() {
 
 // ------------state and event for the form -----------------
   const [formData, setFormData] = useState({name: "", mail: "", text: ""});
-  
+  const [message, setMessage] = useState([]);  
   const handelChange= (event => {
     const { name, value } = event.target;
     setFormData((formData) => ({...formData, [name]: value}))
+    
   })
  
 
   const HandelSubmit = event => {
-   event.preventDefault()
+   event.preventDefault() 
+    setMessage([...message, formData ]);
+    console.log(message)
+   setFormData({name: "", mail: "", text: ""})
    setIsOpen(true)
- 
-     }
+  }
 
 // ---------------------retrun ---------------------
   return (
@@ -45,7 +48,7 @@ export default function Kontakt() {
         onSubmit={HandelSubmit}>
            <label className='form-label'>Namn</label>
             <input
-            className='input'
+            className='form-input'
             type="text"
             name="name"
             value={formData.name}
@@ -53,7 +56,7 @@ export default function Kontakt() {
             
             <label className='form-label'>Mail</label>
             <input 
-            className='input'
+            className='form-input'
             type="text"
             name="mail"
             value={formData.mail}
@@ -63,6 +66,7 @@ export default function Kontakt() {
           
           <textarea 
           id="text-area" 
+          className='form-input'
           cols="30" 
           rows="50"
           value={formData.text}

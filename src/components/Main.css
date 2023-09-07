@@ -6,6 +6,7 @@
 
 body {
     background-color: var(--background-main);
+    min-height: 100vh;
 }
 
 :root {

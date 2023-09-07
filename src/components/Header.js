@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
 import logo from './pictures/massage-logo.png'
@@ -13,13 +13,16 @@ export default function Header() {
     <nav className='navbar'>
         <ul className='nav-ul'>
             <li className='nav-li'>
-                <Link className='nav-link' to="/Hem">Hem</Link>
+                <Link className='nav-link' to="/">Hem</Link>
             </li>
             <li className='nav-li'>
-                <Link className='nav-link' to="/Behandling">Behandling & Priser</Link>
+                <Link className='nav-link' to="/Behandling">Behandling</Link>
             </li>
             <li className='nav-li'>
-                <Link className='nav-link' to="/Boka"> Boka Tid</Link>
+                <Link className='nav-link' to="/Priser">Priser</Link>
+            </li>
+            <li className='nav-li'>
+                <Link className='nav-link' to="/Boka"> Boka</Link>
             </li>
             <li className='nav-li'>
                 <Link className='nav-link' to="/Kontakt">Kontakta Oss</Link>
@@ -29,3 +32,4 @@ export default function Header() {
    </header>
   )
 }
+

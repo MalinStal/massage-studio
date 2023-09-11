@@ -2,20 +2,9 @@ import React from 'react'
 import style from './Boka.css'
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import Main from '../components/Main';
+import  { Main }  from '../components/Main';
+import { dateFunction } from '../utils/datefunction'
 
-  /*const newDate = new Date() ;
-  const day = newDate.getDate().toString().padStart(2,0);
-  const month = (newDate.getMonth() +1).toString().padStart(2,0);
-  const year = newDate.getFullYear();
-  const currentDate= `${year}-${month}-${day}`
-  return currentDate*/
-function getDate() {
-const today = new Date();
-const date = today.setDate(today.getDate()); 
-const defaultValue = new Date(date).toISOString().split('T')[0] 
-return defaultValue
-}
 
 
 export default function Boka() {
@@ -67,7 +56,7 @@ const handelClick = e => {navigate("/Boka2")}
         <input 
         className='form-date form-label'
         type='date'
-        defaultValue={getDate()}
+        defaultValue={dateFunction()}
      />
         <label className='form-label'> Välj behandling form </label>
         <select className='form-label'

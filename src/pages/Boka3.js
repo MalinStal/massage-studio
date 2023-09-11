@@ -78,7 +78,7 @@ export default function Boka3() {
           <option>Epassi</option>
           <option>Rabattkort</option>
         </select>
-        <button className="boka-btn serch-btn">boka</button>
+        <button className="boka-btn serch-btn" >boka</button>
       </form>
     </main>
   );

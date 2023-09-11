@@ -1,91 +1,106 @@
-import React from 'react'
-import style from './Boka.css'
-import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import  { Main }  from '../components/Main';
-import { dateFunction } from '../utils/datefunction'
+import React from "react";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { Navigate, useNavigate } from "react-router-dom";
 
+import style from "./Boka.css";
+//import { bokningsInformation } from '../contexts/atoms';
+import { choiceOfTreatment } from "../contexts/atoms";
+import { choiceOfTreatmentTime } from "../contexts/atoms";
+import { bookingInformation } from "../contexts/atoms";
+import { Main } from "../components/Main";
 
 
 export default function Boka() {
-// -------------------------treatment option----------------------
-  const [behandling,setBehandling] =useState({behandling:""});
-  const behandlingar = ["Djup Klassisk Massage", "Triggerpunkt Massage", "Avslappnande Massage",]
- 
-  const väljBehandlig= behandlingar.map((option, key)=> {
-         return <option value={option} key={key}>
-          {option}</option>
-   })
- 
-   const handelChangeB = (e)=> {
-    const {name, value} = e.target;
 
-    setBehandling((option) => ({...option, [name]:value}))
-   } 
-   //------------------------- time option-------------------
-   const [time, setTime] = useState({time:""})
-   const timeOption = ["30 minuter", "60 minuter", "75 minuter"];
+  //choiceOfTreatment default värde är ett objekt med treatment time & date.
+  const [treatment, setTreatment] = useRecoilState(choiceOfTreatment);
+  // booking info is an empty array
+  const [bookingInfo, setBookingInfo] = useRecoilState(bookingInformation);
 
-   const väljTime= timeOption.map((option, key)=> {
-    return <option value={option} key={key}>
-     {option}</option>
-})
+  //------------------------- treatment option-------------------
+  const treatments = [
+    "Djup Klassisk Massage",
+    "Triggerpunkt Massage",
+    "Avslappnande Massage",
+  ];
+  const timeOption = ["30 minuter", "60 minuter", "75 minuter"];
 
-const handelChangeT = (e)=> {
-const {name, value} = e.target;
+    const chooseTreatment = treatments.map((option, key) => {
+    return (
+      <option value={option} key={key}>
+        {option}
+      </option>
+    );
 
-setTime((option) => ({...option, [name]:value}))
-} 
-//-------handel submit ------------
-const [formData,setFormData] = useState([]); 
+  });const chooseTime = timeOption.map((option, key) => {
+    return (
+      <option value={option} key={key}>
+        {option}
+      </option>
+    );
+  });
 
-const handelSubmit = () => {
-setFormData([...formData, {behandling, time}])
-console.log(formData)
-}
-// --------------- navigate to new page ---------------------------------
-const navigate = useNavigate();
-const handelClick = e => {navigate("/Boka2")}
+
+  //-------handel change and submit ------------
+  
+  const handelChange = (e) => {
+    const { name, value } = e.target;
+
+    setTreatment((option) => ({ ...option, [name]: value }));
+    console.log(treatment);
+  };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const time = time;
+    const treatment = treatment;
+    setBookingInfo((bookingInfo) => {});
+    console.log(bookingInfo);
+  };
+  // --------------- navigate to new page ---------------------------------
+  const navigate = useNavigate();
+  const handelClick = (e) => {
+    navigate("/Boka2");
+  };
 
   // ----- return ------
   return (
     <main>
-      <h3 className='headline'>Boka Tid:</h3>
-      <form className='boknings-form' onSubmit={handelSubmit}>
-        <label className='form-label'> Välj datum: </label>
-        <input 
-        className='form-date form-label'
-        type='date'
-        defaultValue={dateFunction()}
-     />
-        <label className='form-label'> Välj behandling form </label>
-        <select className='form-label'
-        name= "behandling"
-        value={behandling.behandling}
-        onChange={handelChangeB}
-        >
-          <option value={""} disabled>
-           Välj en Behandling
-          </option>
-          {väljBehandlig}
-          </select>
-        <label className='form-label'> Välj behandling längd</label>
+      <h3 className="headline">Boka Tid:</h3>
+
+      <form className="boknings-form" onSubmit={handelSubmit}>
+        <label className="form-label"> Välj datum: </label>
+        <input
+          className="form-date form-label"
+          type="date"
+          name="date"
+          value={treatment.date}
+         
+          onChange={handelChange}
+        />
+        <label className="form-label"> Välj behandling:</label>
         <select
-        className='form-label'
-        name= "time"
-        value={time.time}
-        onChange={handelChangeT}
+          className="form-label"
+          name="treatment"
+          value={treatment.treatment}
+          onChange={handelChange}
         >
-          <option value={""} disabled>
-           Välj en behandlings längd
-          </option>
-          {väljTime}
-          </select>
-        <button type="submit" className='boka-btn serch-btn'onClick={handelClick} >Sök</button>
-      
-      
-      
+         
+          {chooseTreatment}
+        </select>
+        <label className="form-label"> Välj behandlings längd:</label>
+        <select
+          className="form-label"
+          name="time"
+          value={treatment.time}
+          onChange={handelChange}
+        >
+          {chooseTime}
+        </select>
+        <button type="submit" className="boka-btn serch-btn">
+          Sök
+        </button>
       </form>
     </main>
-  )
+  );
 }

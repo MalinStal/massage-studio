@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import style from './Kontakt.css'
 import Main from '../components/Main'
 import Modal from '../components/modal'
+import logo from '../components/pictures/massage-logo.png'
 
 //ATT GÖRA I DENNA FIL 
  /* ` ev skriva ut detta i modalen 
@@ -12,7 +13,7 @@ Name: ${formData.name}, E-mail: ${formData.mail} Medelande: ${formData.text}.
 
 
 export default function Kontakt() {
-  //state till modalen 
+  //------------state till modalen------------ 
   const [isOpen, setIsOpen] = useState(false);
 
 // ------------state and event for the form -----------------
@@ -21,6 +22,7 @@ export default function Kontakt() {
   const handelChange= (event => {
     const { name, value } = event.target;
     setFormData((formData) => ({...formData, [name]: value}))
+    console.log(formData)
     
   })
  
@@ -28,7 +30,7 @@ export default function Kontakt() {
   const HandelSubmit = event => {
    event.preventDefault() 
     setMessage([...message, formData ]);
-    console.log(message)
+   
    setFormData({name: "", mail: "", text: ""})
    setIsOpen(true)
   }
@@ -36,7 +38,8 @@ export default function Kontakt() {
 // ---------------------retrun ---------------------
   return (
     <>
-     <Modal open={isOpen} onClose={()=> setIsOpen(false)}  
+     <Modal open={isOpen} onClose={()=> setIsOpen(false)} 
+     loga={logo} 
      meddelade='Tack för ditt medelande,'
      meddelade3='Vi svarar oftast inom 24 timmar' 
      btnmeddelande='Stäng'/>

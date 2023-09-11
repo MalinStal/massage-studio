@@ -66,7 +66,7 @@ export default function Boka3() {
         <label className="form-label">Stad</label>
         <input
         className="form-input"
-          className="form-input"
+         
           name="stad"
           value={data.stad}
           onChange={handelChange}

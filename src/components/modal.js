@@ -7,14 +7,15 @@ export default function Modal({open,
     meddelade,
     meddelade2, 
     meddelade3,
-    btnmeddelande}) {
+    btnmeddelande,
+    loga}) {
     if (!open) return null
 
     return (
         <>
         <div className="overlay" onClick={onClose}></div>
         <div className="modal-open">
-            
+        <img src={loga} className='logo' />
          <div>{meddelade}</div>
          <div className='modal-text2'>{meddelade2}</div>
          <div>{meddelade3}</div>

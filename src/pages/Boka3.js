@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useRecoilValue } from "recoil";
+import { choiceOfTreatment } from "../contexts/atoms";
 
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter
@@ -35,12 +39,25 @@ export default function Boka3() {
      stad: "",})
      console.log(boking)
     }
-   
-   
-  
+   //--------------- conected to the data from bookingInformation ----------
+    const bookingInfo = useRecoilValue(choiceOfTreatment);  
+
+    const navigate = useNavigate();
+    const handelClick = e => {navigate("/")}
+    
+
+    //-------return ---------------------------------
   return (
     <main>
+     
       <form className="boknings-form">
+         <section>
+        <h3> Du har just nu valt att boka :<span>{JSON.stringify(bookingInfo.time)} {JSON.stringify(bookingInfo.treatment)}</span>
+        <span>klockan: 17:00</span><span>{JSON.stringify(bookingInfo.date)}</span>
+        <span>hos: Malin S</span></h3>
+        <p>
+</p>
+      </section>
         <label className="form-label">Namn</label>
         <input className="form-input" name="namn" value={data.namn} onChange={handelChange} />
         <label className="form-label">Efternamn</label>

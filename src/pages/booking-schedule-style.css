@@ -1,0 +1,44 @@
+.div-booking-schedule{
+    min-height: 1000px;
+     margin-bottom: 40px;
+}
+
+.render-booking-ul {
+    display: flex;
+   flex-direction: column;
+  
+align-items: center;
+justify-content: center;
+list-style: none;
+
+}
+.render-booking-li {
+    margin-bottom: 10px;
+    padding: 7px;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.728);
+ border-radius: 20px;
+    
+}
+.render-booking-li span {
+
+    padding: 20px;
+    
+}
+.render-booking-btn {
+ border-radius: 20px;
+ padding:7px;
+ font-size: 1.2rem;
+  border: none;
+ align-items: center;
+ background: var(--background-header);
+    
+}
+
+.render-booking-btn:hover{
+    opacity: 0.6;
+}
+.booking-date-headline {
+    padding: 30px;
+   font-size: 1.5rem;
+}

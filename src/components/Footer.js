@@ -34,10 +34,10 @@ export default function Footer() {
         <h3>Öppetider:</h3>
 
         <ul >
-          <li >Måndag: 10-19</li>
+          <li >Måndag: 12-20</li>
           <li>Tisdag: 8-18</li>
           <li>Onsdag: 8-18</li>
-          <li>Torsdag: 10-19</li>
+          <li>Torsdag: 12-20</li>
           <li>Fredag: 8-17</li>
           <li>Lördag: 10-17</li>
           <li>Söndag: stängt</li>

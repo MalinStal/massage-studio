@@ -10,8 +10,14 @@ export const kontaktInformation = atom({
 })
 export const choiceOfTreatment = atom({
     key: "choiceOfTreatment",
-    default: {treatment:"Djup Klassisk Massage", time:"60 minuter", date:dateFunction()}
+    default: {treatment:'Djup Klassisk Massage', time:'60 minuter', date: dateFunction()}
 });
+
+
+
+
+
+
 
 
 export const bookingInformation = atom({

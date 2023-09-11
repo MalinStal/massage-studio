@@ -9,14 +9,13 @@ import { choiceOfTreatment } from "../contexts/atoms";
 import { choiceOfTreatmentTime } from "../contexts/atoms";
 import { bookingInformation } from "../contexts/atoms";
 import { Main } from "../components/Main";
+import Boka2 from "./Boka2";
 
 
 export default function Boka() {
 
   //choiceOfTreatment default värde är ett objekt med treatment time & date.
   const [treatment, setTreatment] = useRecoilState(choiceOfTreatment);
-  // booking info is an empty array
-  const [bookingInfo, setBookingInfo] = useRecoilState(bookingInformation);
 
   //------------------------- treatment option-------------------
   const treatments = [
@@ -52,10 +51,11 @@ export default function Boka() {
   };
   const handelSubmit = (e) => {
     e.preventDefault();
-    const time = time;
-    const treatment = treatment;
-    setBookingInfo((bookingInfo) => {});
-    console.log(bookingInfo);
+   
+  
+    alert(JSON.stringify(treatment))
+   
+
   };
   // --------------- navigate to new page ---------------------------------
   const navigate = useNavigate();
@@ -97,10 +97,11 @@ export default function Boka() {
         >
           {chooseTime}
         </select>
-        <button type="submit" className="boka-btn serch-btn">
+        <button type="submit" className="boka-btn serch-btn" onClick={handelClick}>
           Sök
         </button>
       </form>
+     
     </main>
   );
 }

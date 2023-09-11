@@ -22,7 +22,6 @@ export default function Kontakt() {
   const handelChange= (event => {
     const { name, value } = event.target;
     setFormData((formData) => ({...formData, [name]: value}))
-    console.log(formData)
     
   })
  
@@ -30,7 +29,7 @@ export default function Kontakt() {
   const HandelSubmit = event => {
    event.preventDefault() 
     setMessage([...message, formData ]);
-   
+    console.log(message)
    setFormData({name: "", mail: "", text: ""})
    setIsOpen(true)
   }

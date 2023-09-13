@@ -14,6 +14,7 @@ import BookingSchedule from '../utils/booking-schedule';
 // behöver på något sätt gemföra alla tider med dagar på en vecka samt om alla 
 //
 //
+
 export default function Boka2() {
 
 const bookingInfo = useRecoilValue(choiceOfTreatment);
@@ -21,14 +22,14 @@ const bookingInfo = useRecoilValue(choiceOfTreatment);
   const navigate = useNavigate();
 const handelClick = e => {navigate("/Boka3")}
 
-
+ 
    
      const style = {
        width: "20px",
        hight: "25px",
        borderRadius: "50px",
      };
-   
+    
      return (
        <div className="div-booking-schedule">
          <section>

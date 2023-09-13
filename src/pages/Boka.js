@@ -10,6 +10,7 @@ import { choiceOfTreatmentTime } from "../contexts/atoms";
 import { bookingInformation } from "../contexts/atoms";
 import { Main } from "../components/Main";
 import Boka2 from "./Boka2";
+import { getWeekday } from "../utils/datefunction";
 
 
 export default function Boka() {
@@ -39,7 +40,7 @@ export default function Boka() {
       </option>
     );
   });
-
+  
 
   //-------handel change and submit ------------
   
@@ -69,13 +70,14 @@ export default function Boka() {
       <h3 className="headline">Boka Tid:</h3>
 
       <form className="boknings-form" onSubmit={handelSubmit}>
+        {getWeekday(treatment.date)}
         <label className="form-label"> Välj datum: </label>
         <input
           className="form-date form-label"
           type="date"
           name="date"
           value={treatment.date}
-         
+          
           onChange={handelChange}
         />
         <label className="form-label"> Välj behandling:</label>

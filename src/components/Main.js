@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Main.css'
 import headpic from './pictures/massage.avif'
-import Button from './Button'
+
 import { Navigate, useNavigate } from 'react-router-dom'
 
 

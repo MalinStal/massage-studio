@@ -1,39 +1,36 @@
 import React from "react";
 import { useState } from "react";
+
 import { useRecoilState } from "recoil";
 import { Navigate, useNavigate } from "react-router-dom";
 
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
 import style from "./Boka.css";
 //import { bokningsInformation } from '../contexts/atoms';
-import { choiceOfTreatment } from "../contexts/atoms";
-import { choiceOfTreatmentTime } from "../contexts/atoms";
-import { bookingInformation } from "../contexts/atoms";
+import { choiceOfTreatment } from "../2recoilstate/atoms";
+import { choiceOfTreatmentTime } from "../2recoilstate/atoms";
+import { bookingInformation } from "../2recoilstate/atoms";
 import { Main } from "../components/Main";
 import Boka2 from "./Boka2";
-import { getWeekday } from "../utils/datefunction";
-
+import { getWeekday } from "../3utils/datefunction";
 
 export default function Boka() {
-
   //choiceOfTreatment default värde är ett objekt med treatment time & date.
   const [treatment, setTreatment] = useRecoilState(choiceOfTreatment);
 
+  const navigate = useNavigate();
+  
   //------------------------- treatment option-------------------
   const treatments = [
     "Djup Klassisk Massage",
     "Triggerpunkt Massage",
     "Avslappnande Massage",
   ];
-  const timeOption = ["30 minuter", "60 minuter", "75 minuter"];
+  const timeOption = ["30 minuter", "60 minuter", "90 minuter"];
 
-    const chooseTreatment = treatments.map((option, key) => {
-    return (
-      <option value={option} key={key}>
-        {option}
-      </option>
-    );
-
-  });const chooseTime = timeOption.map((option, key) => {
+  const chooseTreatment = treatments.map((option, key) => {
     return (
       <option value={option} key={key}>
         {option}
@@ -41,9 +38,16 @@ export default function Boka() {
     );
   });
   
+  const chooseTime = timeOption.map((option, key) => {
+    return (
+      <option value={option} key={key}>
+        {option}
+      </option>
+    );
+  });
 
   //-------handel change and submit ------------
-  
+
   const handelChange = (e) => {
     const { name, value } = e.target;
 
@@ -52,23 +56,15 @@ export default function Boka() {
   };
   const handelSubmit = (e) => {
     e.preventDefault();
-   
-  
-    alert(JSON.stringify(treatment))
-   
-
-  };
-  // --------------- navigate to new page ---------------------------------
-  const navigate = useNavigate();
-  const handelClick = (e) => {
     navigate("/Boka2");
+  
   };
+  
+  
 
   // ----- return ------
   return (
     <main>
-      <h3 className="headline">Boka Tid:</h3>
-
       <form className="boknings-form" onSubmit={handelSubmit}>
         {getWeekday(treatment.date)}
         <label className="form-label"> Välj datum: </label>
@@ -77,9 +73,9 @@ export default function Boka() {
           type="date"
           name="date"
           value={treatment.date}
-          
           onChange={handelChange}
         />
+
         <label className="form-label"> Välj behandling:</label>
         <select
           className="form-label"
@@ -87,7 +83,6 @@ export default function Boka() {
           value={treatment.treatment}
           onChange={handelChange}
         >
-         
           {chooseTreatment}
         </select>
         <label className="form-label"> Välj behandlings längd:</label>
@@ -99,11 +94,14 @@ export default function Boka() {
         >
           {chooseTime}
         </select>
-        <button type="submit" className="boka-btn serch-btn" onClick={handelClick}>
+        <button
+          type="submit"
+          className="boka-btn serch-btn"
+         
+        >
           Sök
         </button>
       </form>
-     
     </main>
   );
 }

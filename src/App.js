@@ -4,13 +4,13 @@ import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from './components/Footer';
-import Hem from "./pages/Hem";
-import Behandling from "./pages/Behandling";
+import Hem from "./5pages/Hem";
+import Behandling from "./5pages/Behandling";
 
-import Boka from "./pages/Boka";
-import Boka2 from "./pages/Boka2";
-import Boka3 from "./pages/Boka3";
-import Kontakt from "./pages/Kontakt";
+import Boka from "./5pages/Boka";
+import Boka2 from "./5pages/Boka2";
+import Boka3 from "./5pages/Boka3";
+import Kontakt from "./5pages/Kontakt";
 import Main from './components/Main'
 
 
@@ -23,7 +23,7 @@ function App() {
 <Header/>
 <Main/>
 <Routes>
-  <Route path="/"element={<Hem/>} />
+  <Route index element={<Hem/>} />
   <Route path="/Behandling" element={<Behandling/>}/>
   <Route path="/Boka" element={<Boka/>}/>
   <Route path="/Boka2" element= {<Boka2/>}/>
@@ -38,5 +38,5 @@ function App() {
  </>
   );
 }
-
+//prova läga in index istället för path="/"
 export default App;

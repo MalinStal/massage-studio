@@ -8,6 +8,19 @@ export const kontaktInformation = atom({
   default: "",
 });
 
+export const bookingInformationPerson = atom({
+  key: "bookingInformationPerson",
+  default: {
+  namn: "",
+  efternamn: "",
+  mail: "",
+  telefon: "",
+  adress: "",
+  postnummer: "",
+  stad: "",
+
+}
+})
 // ------------handeling tretment choise------------
 export const choiceOfTreatment = atom({
   key: "choiceOfTreatment",

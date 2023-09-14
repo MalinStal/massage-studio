@@ -9,9 +9,8 @@ import "react-calendar/dist/Calendar.css";
 
 import style from "./Boka.css";
 //import { bokningsInformation } from '../contexts/atoms';
-import { choiceOfTreatment } from "../2recoilstate/atoms";
-import { choiceOfTreatmentTime } from "../2recoilstate/atoms";
-import { bookingInformation } from "../2recoilstate/atoms";
+import { choiceOfTreatment, bookingInformationPerson } from "../2recoilstate/atoms";
+
 import { Main } from "../components/Main";
 import Boka2 from "./Boka2";
 import { getWeekday } from "../3utils/datefunction";

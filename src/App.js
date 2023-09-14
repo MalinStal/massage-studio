@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from './components/Footer';
 import Hem from "./5pages/Hem";
 import Behandling from "./5pages/Behandling";
+import Addminpage from './5pages/addminpage';
 
 import Boka from "./5pages/Boka";
 import Boka2 from "./5pages/Boka2";
@@ -29,6 +30,7 @@ function App() {
   <Route path="/Boka2" element= {<Boka2/>}/>
   <Route path="/Boka3" element= {<Boka3/>}/>
   <Route path="/Kontakt" element={<Kontakt/>}/>
+  <Route path='/addminpage' element={<Addminpage/>}/>
   
 </Routes>
 

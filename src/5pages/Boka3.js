@@ -2,36 +2,43 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useRecoilValue } from "recoil";
-import { choiceOfTreatment } from "../2recoilstate/atoms";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { choiceOfTreatment, bookingInformationPerson, bookingInformation } from "../2recoilstate/atoms";
 import { saveBooking } from "../1storage/local-storage";
 
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter
 //gör den funktionel och spara kunden i lokalstorage elelr spara bara den bokade tiden i local storge. det viktga är att den bokade tiden försvinner från kaländenr.
 export default function Boka3() {
-  const [data, setData] = useState({
-    namn: "",
-    efternamn: "",
-    mail: "",
-    telefon: "",
-    adress: "",
-    postnummer: "",
-    stad: "",
-  });
+  const [data, setData] = useRecoilState(bookingInformationPerson)
+
   const [boking, setBoking] = useState([]);
 
-  const bookInfo = useRecoilValue(choiceOfTreatment)
-  console.log(bookInfo)
+  const [bookInfo, setBookinfo] = useRecoilState(choiceOfTreatment)
+ 
+  
   const handelChange = (event) => {
     const { name, value } = event.target;
     setData((data) => ({ ...data, [name]: value }));
   };
+ // ger ut ett id random för att kunna spara bokningen i lokal storage
+  const id = Math.floor(Math.random() * 100);
 
-  const HandelSubmit = (event) => {
+
+ //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista 
+  const handelSubmit = (event) => {
     event.preventDefault();
-    saveBooking(bookInfo)
+    const namn = data.namn;
+    const efternamn = data.efternamn;
+    const mail = data.mail;
+    const telefon= data.telefon;
+    const adress = data.adress;
+    const postnummer = data.postnummer;
+    const stad = data.stad;
 
+    setBookinfo((data) => ({ ...data, namn, efternamn, mail, telefon, adress, postnummer, stad}));
+    
+    saveBooking(id, bookInfo)
     setData({
       namn: "",
       efternamn: "",
@@ -41,7 +48,7 @@ export default function Boka3() {
       postnummer: "",
       stad: "",
     });
-    console.log(boking);
+    
   };
   //--------------- conected to the data from bookingInformation ----------
   const bookingInfo = useRecoilValue(choiceOfTreatment);
@@ -54,17 +61,22 @@ export default function Boka3() {
   //-------return ---------------------------------
   return (
     <main>
-      <form className="boknings-form">
+      <button onClick={()=>{navigate("/addminpage")}}>Addminpage</button>
+      <form className="boknings-form" onSubmit={handelSubmit}>
         <section>
           <h3>
-            {" "}
-            Du har just nu valt att boka :
+            
+            Du har just nu valt att boka: <br></br>
             <span>
-              {bookingInfo.time}{" "}
-              {bookingInfo.treatment}
-            </span>
-            <span>{bookingInfo.date}</span>
-            <span>hos: Malin S</span>
+             {`${bookingInfo.time}
+              ${bookingInfo.treatment}
+             `} </span>
+             <br></br>
+             <span>{` den: 
+            ${bookingInfo.date} klockan : 13:00`}</span>
+            <br></br>
+          <span>hos: Malin S</span> 
+           
           </h3>
           <p></p>
         </section>

@@ -24,6 +24,11 @@ export default function Behandling() {
     <td>960 kr</td>
   </tr>
   <tr>
+    <td>Djup Klassisk Massage </td>
+    <td>90 min</td>
+    <td>1350 kr</td>
+  </tr>
+  <tr>
     <td> Triggerpunkt Massage</td>
     <td>30 min</td>
     <td>590 kr</td>
@@ -32,6 +37,11 @@ export default function Behandling() {
     <td> Triggerpunkt Massage</td>
     <td>60 min</td>
     <td>960 kr</td>
+  </tr>
+  <tr>
+    <td>Triggerpunkt Massage </td>
+    <td>90 min</td>
+    <td>1350 kr</td>
   </tr>
   <tr>
     <td> Avslappnande Massage </td>
@@ -42,6 +52,11 @@ export default function Behandling() {
     <td>Avslappnande Massage </td>
     <td>60 min</td>
     <td>960 kr</td>
+  </tr>
+  <tr>
+    <td>Avslappnande Massage </td>
+    <td>90 min</td>
+    <td>1350 kr</td>
   </tr>
  
   

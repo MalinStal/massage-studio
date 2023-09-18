@@ -17,10 +17,10 @@ import { getWeekday } from "../3utils/datefunction";
 
 export default function Boka() {
   //choiceOfTreatment default värde är ett objekt med treatment time & date.
-  const [treatment, setTreatment] = useRecoilState(choiceOfTreatment);
+  const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
 
   const navigate = useNavigate();
-  
+  console.log("boka1", bookingInfo)
   //------------------------- treatment option-------------------
   const treatments = [
     "Djup Klassisk Massage",
@@ -50,8 +50,8 @@ export default function Boka() {
   const handelChange = (e) => {
     const { name, value } = e.target;
 
-    setTreatment((option) => ({ ...option, [name]: value }));
-    console.log(treatment);
+    setBookingInfo((option) => ({ ...option, [name]: value }));
+    console.log(bookingInfo);
   };
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -65,13 +65,13 @@ export default function Boka() {
   return (
     <main>
       <form className="boknings-form" onSubmit={handelSubmit}>
-        {getWeekday(treatment.date)}
+        {getWeekday(bookingInfo.date)}
         <label className="form-label"> Välj datum: </label>
         <input
           className="form-date form-label"
           type="date"
           name="date"
-          value={treatment.date}
+          value={bookingInfo.date}
           onChange={handelChange}
         />
 
@@ -79,7 +79,7 @@ export default function Boka() {
         <select
           className="form-label"
           name="treatment"
-          value={treatment.treatment}
+          value={bookingInfo.treatment}
           onChange={handelChange}
         >
           {chooseTreatment}
@@ -87,8 +87,8 @@ export default function Boka() {
         <label className="form-label"> Välj behandlings längd:</label>
         <select
           className="form-label"
-          name="time"
-          value={treatment.time}
+          name="length"
+          value={bookingInfo.length}
           onChange={handelChange}
         >
           {chooseTime}

@@ -22,15 +22,15 @@ export default function Boka2() {
   const [time60, setTime60] = useRecoilState(freeTimes60)
   const [time90, setTime90] = useRecoilState(freeTimes90)
 
+  console.log("boka2", bookingInfo)
   const navigate = useNavigate();
-  const handelClick = (id) => {
-  
+ 
+  const handelClick = (time) => {
+ 
+    setBookingInfo(time);
+
     navigate("/Boka3");
-  };
-  const handelClick90 = (id) => {
-    
-      console.log(bookingInfo);
-      //navigate("/Boka3");
+     
     };
   const style = {
     width: "20px",
@@ -38,21 +38,24 @@ export default function Boka2() {
     borderRadius: "50px",
   };
 
-  //-------------- time scedual ---------
-  function gettimeSced() {
-   
+  //-------------- time scadual ---------
+  function getTimeScadual() {
 
-    if (bookingInfo.time === "30 minuter") {
+
+    if (bookingInfo.length === "30 minuter") {
       const timeList30 = time30.map((time) => {
         return (
-          <li className="render-booking-li">
+          <li key={time} className="render-booking-li">
             <span>{time} </span>
             <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.time}</span>
+            <span>{bookingInfo.length}</span>
             <span>
               Malin S <img src={malin} style={style} />
             </span>
-            <button className="render-booking-btn" onClick={handelClick}>
+            <button className="render-booking-btn" onClick={()=>{
+              
+             
+            handelClick({...bookingInfo, time: time})}}>
               {" "}
               Boka
             </button>
@@ -60,18 +63,23 @@ export default function Boka2() {
         );
       });
 
+       
+
+      console.log(time30)
       return timeList30;
-    } else if (bookingInfo.time === "60 minuter") {
+
+    }
+     else if (bookingInfo.length === "60 minuter") {
       const timeList60 = time60.map((time) => {
         return (
-          <li className="render-booking-li">
+          <li  key={time} className="render-booking-li">
             <span>{time} </span>
             <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.time}</span>
+            <span>{bookingInfo.length}</span>
             <span>
               Malin S <img src={malin} style={style} />
             </span>
-            <button className="render-booking-btn" onClick={handelClick}>
+            <button className="render-booking-btn" onClick={()=>handelClick({...bookingInfo, time: time})}>
               {" "}
               Boka
             </button>
@@ -81,19 +89,18 @@ export default function Boka2() {
 
       return timeList60;
     }
-    else if (bookingInfo.time === "90 minuter") {
+    else if (bookingInfo.length === "90 minuter") {
       const timeList90 = time90.map((time) => {
         return (
-          <li className="render-booking-li" key={time.id}>
-            <span>{time.time} </span>
-            <span>{time.id}</span>
+          <li className="render-booking-li" key={time}>
+            <span>{time} </span>
             <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.time}</span>
+            <span>{bookingInfo.length}</span>
             <span>
               Malin S <img src={malin} style={style} />
             </span>
-            <button className="render-booking-btn" onClick={handelClick90}>
-              {" "}
+            <button className="render-booking-btn" onClick={()=>handelClick({...bookingInfo, time: time})}>
+             
               Boka
             </button>
           </li>
@@ -108,10 +115,10 @@ export default function Boka2() {
     <div className="div-booking-schedule">
       <section>
         <h3 className="booking-date-headline">
-          Bokningsbara tider:{" "}
-          {bookingInfo.date + " " + getWeekday(bookingInfo.date)}{" "}
+         
+          {getWeekday(bookingInfo.date) + " " + bookingInfo.date}{" "}
         </h3>
-        <ul className="render-booking-ul">{gettimeSced()}</ul>
+        <ul className="render-booking-ul">{getTimeScadual()}</ul>
       </section>
     </div>
   );

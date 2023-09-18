@@ -14,15 +14,19 @@ import logo from '../components/pictures/massage-logo.png'
 //skapa socialamedier bilder till sidan
 export default function Hem() {
 
-  const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
-  setIsOpen(true)
+  //detta är till moddalen på 
+  //const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
+ // setIsOpen(true)
+
+  //const closeModal = (() => {
+ // })
   useEffect(() => {}, []);
   return (
     <div>
-     { /*
-     ser ut som denna kod skapar någon infenent loop som stoppar sidan från att köra .... 
-     isOpen &&(
-     <Modal 
+    
+    {/*  
+    får inte denna modal att fungera verkar bli någon sort infinit loop ....
+    <Modal 
      open={isOpen} 
      loga={logo} 
      meddelade={"Hej där! Varmt välkommen till Anahata massage studio" } 
@@ -36,8 +40,9 @@ export default function Hem() {
         className="news-letter-form"
         />} 
         btnmeddelande={"stäng"} 
-     onClose={setIsOpen(false)
-        />)}*/}
+      
+        />*/}
+    
       <section className="home-section">
         <article className="home-artical">
           <h3 className="h3-headline">Varför djup klassisk massage?</h3>

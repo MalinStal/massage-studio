@@ -18,7 +18,7 @@ export default function Kontakt() {
 
   // ------------state and event for the form -----------------
   const [formData, setFormData] = useState({ name: "", mail: "", text: "" });
-  const [message, setMessage] = useState([]);
+ 
   const handelChange = (event) => {
     const { name, value } = event.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
@@ -26,8 +26,8 @@ export default function Kontakt() {
 
   const HandelSubmit = (event) => {
     event.preventDefault();
-    setMessage([...message, formData]);
-    console.log(message);
+    
+    console.log(formData);
     setFormData({ name: "", mail: "", text: "" });
     setIsOpen(true);
   };
@@ -39,10 +39,9 @@ export default function Kontakt() {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         loga={logo}
-        meddelade="Tack för ditt medelande,"
-        meddelade3="Vi svarar oftast inom 24 timmar"
-        btnmeddelande="Stäng"
-      />
+       
+        btnMessage="Stäng"
+      > <div>Hej  {formData.name}! Tack för ditt meddelande. <br></br>Vi svarar inom 24 timmar.</div> </Modal>
 
       <section className="form-section">
         <h3 className="headline">Kontakt Oss</h3>

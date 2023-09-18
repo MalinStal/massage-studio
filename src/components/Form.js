@@ -5,7 +5,7 @@ export default function Form({
   inputType,
   titel2,
   inputType2,
-  btntitel,
+  btn,
   btnClassName
 }) {
   return (
@@ -14,7 +14,7 @@ export default function Form({
       <input type={inputType} />
       <label> {titel2}</label>
       <input type={inputType2} />
-      <button className={btnClassName}>{btntitel}</button>
+      <button className={btnClassName}>{btn}</button>
     </form>
     
   );

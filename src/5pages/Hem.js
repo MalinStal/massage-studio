@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import Main from "../components/Main";
 import style from "./Hem-Behandling.css";
+import Modal from "../components/modal";
+import Form from "../components/Form";
+import { modalIsOpen } from "../2recoilstate/atoms";
+import { useRecoilState } from "recoil";
+import logo from '../components/pictures/massage-logo.png'
 
 //ATT GÖRA I DENNA FIL
 //ska något basik innehåll frö utfullnad
@@ -8,9 +13,31 @@ import style from "./Hem-Behandling.css";
 //ev fixa ett bild spel
 //skapa socialamedier bilder till sidan
 export default function Hem() {
+
+  const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
+  setIsOpen(true)
   useEffect(() => {}, []);
   return (
     <div>
+     { /*
+     ser ut som denna kod skapar någon infenent loop som stoppar sidan från att köra .... 
+     isOpen &&(
+     <Modal 
+     open={isOpen} 
+     loga={logo} 
+     meddelade={"Hej där! Varmt välkommen till Anahata massage studio" } 
+    meddelade2={"prenumerera gärna på vårt nyhetsbrev"}
+     meddelade3={
+     <Form 
+        titel1={"Namn:"} 
+        titel2={"E-mail:"} 
+        btn={"Prenumerera"}
+        btnClassName={"news-letter-btn"}
+        className="news-letter-form"
+        />} 
+        btnmeddelande={"stäng"} 
+     onClose={setIsOpen(false)
+        />)}*/}
       <section className="home-section">
         <article className="home-artical">
           <h3 className="h3-headline">Varför djup klassisk massage?</h3>

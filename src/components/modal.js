@@ -2,6 +2,7 @@ import React from 'react'
 import useState from 'react'
 import style from './modal.css'
 
+
 export default function Modal({open,
     onClose,
     meddelade,
@@ -10,7 +11,7 @@ export default function Modal({open,
     btnmeddelande,
     loga}) {
     if (!open) return null
-
+//om tid finns gör om modal till en children propp vid meddelandet
     return (
         <>
         <div className="overlay" onClick={onClose}></div>

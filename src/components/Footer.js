@@ -47,7 +47,7 @@ export default function Footer() {
         <Form 
         titel1={"Namn:"} 
         titel2={"E-mail:"} 
-        btntitel={"Prenumerera"}
+        btn={"Prenumerera"}
         btnClassName={"news-letter-btn"}
         className="news-letter-form"/>
       </section>

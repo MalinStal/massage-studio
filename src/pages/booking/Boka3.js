@@ -6,11 +6,11 @@ import {
   choiceOfTreatment,
   bookingInformationPerson,
   modalIsOpen,
-} from '../../recoilstate/atoms'
+} from "../../recoilstate/atoms";
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
 import logo from "../../components/pictures/massage-logo.png";
-
+import { Formtest } from "../../components/formtest";
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter
 //gör den funktionel och spara kunden i lokalstorage elelr spara bara den bokade tiden i local storge. det viktga är att den bokade tiden försvinner från kaländenr.
@@ -29,8 +29,8 @@ export default function Boka3() {
   const id = "booking" + Math.floor(Math.random() * 100);
 
   //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista
-  const handelSubmit = (event) => {
-    event.preventDefault();
+  const handelSubmit = (e) => {
+    e.preventDefault();
     const namn = data.namn;
     const efternamn = data.efternamn;
     const mail = data.mail;
@@ -57,14 +57,9 @@ export default function Boka3() {
   //--------------- conected to the data from bookingInformation ----------
   const bookingInfo = useRecoilValue(choiceOfTreatment);
 
-  const navigate = useNavigate();
-  const handelClick = (e) => {
-    navigate("/");
-  };
-
   // --------------modal ----------------------------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
-
+  const navigate = useNavigate();
   const closeModal = () => {
     setData({
       namn: "",
@@ -76,6 +71,7 @@ export default function Boka3() {
       stad: "",
     });
     setIsOpen(false);
+    navigate("/");
   };
   //-------return ---------------------------------
   return (
@@ -91,24 +87,24 @@ export default function Boka3() {
       </Modal>
 
       <form className="boknings-form" onSubmit={handelSubmit}>
-        <section>
-          <h3>
-            Du har just nu valt att boka: <br></br>
-            <span>
-              {`${bookingInfo.length}
+        <section className="booking-info-section">
+          <h3 className="booking-info-h3">Din valda bokning: </h3>
+          <span className="booking-info-span">
+            {`${bookingInfo.length}
               ${bookingInfo.treatment}
              `}{" "}
-            </span>
-            <br></br>
-            <span>{` 
+          </span>
+
+          <span className="booking-info-span">{` 
             ${bookingInfo.date} klockan : ${bookingInfo.time}`}</span>
-            <br></br>
-            <span>hos: Malin S</span>
-          </h3>
-          <p></p>
+
+          <span className="booking-info-span">hos: Malin S</span>
         </section>
         <label className="form-label">Namn</label>
         <input
+          autoFocus
+          required
+          type="text"
           className="form-input"
           name="namn"
           value={data.namn}
@@ -116,6 +112,8 @@ export default function Boka3() {
         />
         <label className="form-label">Efternamn</label>
         <input
+          type="text"
+          required
           className="form-input"
           name="efternamn"
           value={data.efternamn}
@@ -123,13 +121,27 @@ export default function Boka3() {
         />
         <label className="form-label">E-mail</label>
         <input
+          type="email"
+          required
           className="form-input"
           name="mail"
           value={data.mail}
           onChange={handelChange}
         />
+        <label className="form-label">Telefon nummer:</label>
+        <input
+          type="number"
+          required
+          minlength="10"
+          className="form-input"
+          name="telefon"
+          value={data.telefon}
+          onChange={handelChange}
+        />
         <label className="form-label">Adress</label>
         <input
+          type="text"
+          required
           className="form-input"
           name="adress"
           value={data.adress}
@@ -137,6 +149,9 @@ export default function Boka3() {
         />
         <label className="form-label">Postnummer</label>
         <input
+          type="number"
+          required
+          minlength="5"
           className="form-input"
           name="postnummer"
           value={data.postnummer}
@@ -144,6 +159,7 @@ export default function Boka3() {
         />
         <label className="form-label">Stad</label>
         <input
+          required
           className="form-input"
           name="stad"
           value={data.stad}

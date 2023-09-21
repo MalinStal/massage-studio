@@ -6,15 +6,16 @@ export function Formtest(props) {
   const handelChange= (event => {
     const { name, value } = event.target;
 
-    props.set((option) => ({ ...option, [name]: value }));
-    console.log(props.t);
+    props.setData((option) => ({ ...option, [name]: value }));
+    console.log(props.Data);
     
   })
  
 //handelSubmit kallas som props och får referas till en ny const med vad man faktsit vill ska hända i formuläret.
   const HandelSubmit = event => {
    event.preventDefault() 
-    props.onenSubmit()
+    props.onSubmit()
+    console.log(props.sub)
   }
  
   return (

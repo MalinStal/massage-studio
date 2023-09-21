@@ -10,7 +10,7 @@ export default function Footer() {
      <nav className='navbar'>
         <ul className='nav-ul'>
             <li className='nav-li'>
-                <Link className='nav-link' to="/Hem">Hem</Link>
+                <Link className='nav-link' to="/">Hem</Link>
             </li>
             <li className='nav-li'>
                 <Link className='nav-link' to="/Behandling">Behandling & Priser</Link>
@@ -24,20 +24,16 @@ export default function Footer() {
         </ul>
     </nav>
     <img src={logo} className="logo-aside" alt='loga' />
-      <section className="section , search-section">
-
-        <label>SÖK</label>
-        <input />
-      </section>
+     
       <section className="section , open-hours">
         <h3>Öppetider:</h3>
 
         <ul >
-          <li >Måndag: 12-20</li>
-          <li>Tisdag: 8-18</li>
-          <li>Onsdag: 8-18</li>
-          <li>Torsdag: 12-20</li>
-          <li>Fredag: 8-17</li>
+          <li >Måndag: 8-19</li>
+          <li>Tisdag: 8-19</li>
+          <li>Onsdag: 8-19</li>
+          <li>Torsdag: 8-19</li>
+          <li>Fredag: 8-19</li>
           <li>Lördag: 10-17</li>
           <li>Söndag: stängt</li>
         </ul>

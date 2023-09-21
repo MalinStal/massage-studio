@@ -17,7 +17,7 @@ export default function Main() {
         <h2 className='head-text'>Make time for yourself!</h2>
         <h3 className='head-text2'> </h3>
         
-        <button className="boka-btn" onClick={handelClick}>Boka massage tid</button>
+        <button className="boka-btn" onClick={handelClick}>Boka massage</button>
        
     </section>
    </main>

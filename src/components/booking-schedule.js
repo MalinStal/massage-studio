@@ -9,7 +9,7 @@ import {
   freeTimes60Saturday,
   freeTimes90Saturday,
 } from "../recoilstate/atoms";
-import malin from "./pictures/malin.jpg";
+import malin from '../pictures/malin.jpg'
 import { useNavigate } from "react-router-dom";
 
 export function GetTimeScadual() {
@@ -36,7 +36,8 @@ export function GetTimeScadual() {
   };
 
   // problemet med denna if statement mellan vardag och lördag är att uppdateringen av själva dagen inte följer med bokningen så det hella tiden är 1 steg efter dvs jag måste ändra datum 2 gånger för att dagen sak ändras
-  if (bookingInfo.day === "Lördag") {
+  if (bookingInfo.day == "Lördag") {
+   
     if (bookingInfo.length === "30 minuter") {
       const timeList30 = time30S.map((time, key) => {
         return (
@@ -45,7 +46,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"
@@ -69,7 +70,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"
@@ -91,7 +92,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"
@@ -106,7 +107,7 @@ export function GetTimeScadual() {
       return timeList90;
     }
   }
-  if (bookingInfo.day === "Söndag") {
+  if (bookingInfo.day == "Söndag") {
     return (
       <div> Idag har vi tyvärr inga tider sök gärna på en annan dag! </div>
     );
@@ -119,7 +120,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"
@@ -143,7 +144,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"
@@ -165,7 +166,7 @@ export function GetTimeScadual() {
             <span>{bookingInfo.treatment}</span>
             <span>{bookingInfo.length}</span>
             <span>
-              Malin S <img src={malin} style={style} />
+              Malin <img src={malin} style={style} />
             </span>
             <button
               className="render-booking-btn"

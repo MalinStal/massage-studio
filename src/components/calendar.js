@@ -15,6 +15,7 @@ export default function Calendar() {
      return (
     <div>
        <Calendar selected={datepicker}
+       selectRange={true}
      onChange={handelDateChange} 
       minDate={value}
       maxDate={new Date("2023-12-31")} 

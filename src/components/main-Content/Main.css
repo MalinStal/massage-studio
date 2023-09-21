@@ -6,6 +6,7 @@
     object-position: center;
     object-fit: cover;
    
+    z-index: 1;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.249);
 }
 
@@ -14,9 +15,9 @@
     text-align: center;
     margin-top: -250px;
     margin-bottom: 20px;
-    opacity: 0.8;
-    color: white;
     
+    color: white;
+   
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
 }

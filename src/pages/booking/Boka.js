@@ -13,16 +13,19 @@ import {
   choiceOfTreatment} from '../../recoilstate/atoms'
 
 import Boka2 from "./Boka2";
-import { getWeekday } from "../../utils/datefunction";
+import { getWeekday, dateFunction  } from "../../utils/datefunction";
 
 
 
-export default function Boka() {
-  //choiceOfTreatment default värde är ett objekt med treatment time & date.
+export default function Boka({style}) {
+
   const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
 
+  const todayDate = dateFunction();
+  const maxDate = "2023-12-31";
+  
   const navigate = useNavigate();
-  console.log("boka1", bookingInfo);
+ 
   //------------------------- treatment option-------------------
   const treatments = [
     "Djup Klassisk Massage",
@@ -68,10 +71,13 @@ export default function Boka() {
   // ----- return ------
   return (
     <main>
-      <form className="boknings-form" onSubmit={handelSubmit}>
+      <form className={"boknings-form"}  onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
         <label className="form-label"> Välj datum: </label>
         <input
+          
+          min={todayDate}
+          max={maxDate}
           className="form-date form-label"
           type="date"
           name="date"

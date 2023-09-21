@@ -13,33 +13,14 @@ import logo from "../components/pictures/massage-logo.png";
 //ev fixa ett bild spel
 //skapa socialamedier bilder till sidan
 export default function Hem() {
-  //detta är till moddalen på
-  //const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
-  // setIsOpen(true)
 
-  //const closeModal = (() => {
-  // })
-  useEffect(() => {}, []);
+  fetch('https://dummyjson.com/comments')
+.then(res => res.json())
+.then(console.log);
+
   return (
     <div>
-      {/*  
-    får inte denna modal att fungera verkar bli någon sort infinit loop ....
-    <Modal 
-     open={isOpen} 
-     loga={logo} 
-     meddelade={"Hej där! Varmt välkommen till Anahata massage studio" } 
-    meddelade2={"prenumerera gärna på vårt nyhetsbrev"}
-     meddelade3={
-     <Form 
-        titel1={"Namn:"} 
-        titel2={"E-mail:"} 
-        btn={"Prenumerera"}
-        btnClassName={"news-letter-btn"}
-        className="news-letter-form"
-        />} 
-        btnmeddelande={"stäng"} 
-      
-        />*/}
+
 
       <section className="home-section">
         <article className="home-artical">
@@ -99,7 +80,9 @@ export default function Hem() {
           eller svullet.
         </article>
       </section>
-      <section></section>
+      <section className="home-section">
+
+      </section>
     </div>
   );
 }

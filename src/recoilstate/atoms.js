@@ -46,7 +46,7 @@ export const modalIsOpen = atom({
 // ------------time states------------
 
 export const freeTimes30WeekDay = atom({
-  key: "freeTimes30",
+  key: "freeTimes30WeekDay",
   default: [
     "8:00",
     "8:30",
@@ -73,7 +73,7 @@ export const freeTimes30WeekDay = atom({
 });
 
 export const freeTimes60WeekDay = atom({
-  key: "freeTimes60",
+  key: "freeTimes60WeekDay",
   default: [
     "8:00",
     "9:00",
@@ -89,7 +89,7 @@ export const freeTimes60WeekDay = atom({
   ],
 });
 export const freeTimes90WeekDay = atom({
-  key: "freeTimes90",
+  key: "freeTimes90WeekDay",
   default: [
     "8:00",
     "9:30",
@@ -103,7 +103,7 @@ export const freeTimes90WeekDay = atom({
 });
 
 export const freeTimes30Saturday = atom({
-  key: "freeTimes30",
+  key: "freeTimes30Saturday",
   default: [
     "10:00",
     "10:30",
@@ -122,10 +122,10 @@ export const freeTimes30Saturday = atom({
 });
 
 export const freeTimes60Saturday = atom({
-  key: "freeTimes60",
+  key: "freeTimes60Saturday",
   default: ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"],
 });
 export const freeTimes90Saturday = atom({
-  key: "freeTimes90",
+  key: "freeTimes90Saturday",
   default: ["10:00", "11:30", "13:30", "14:30", "15:30"],
 });

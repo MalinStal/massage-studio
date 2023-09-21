@@ -6,10 +6,10 @@ import {
   choiceOfTreatment,
   bookingInformationPerson,
   modalIsOpen,
-} from "../2recoilstate/atoms";
-import { saveBooking } from "../1storage/local-storage";
-import Modal from "../components/modal";
-import logo from "../components/pictures/massage-logo.png";
+} from '../../recoilstate/atoms'
+import { saveBooking } from "../../storage/local-storage";
+import Modal from "../../components/modal";
+import logo from "../../components/pictures/massage-logo.png";
 
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter
@@ -51,8 +51,7 @@ export default function Boka3() {
     }));
 
     saveBooking(id, bookInfo);
-    
-   
+
     setIsOpen(true);
   };
   //--------------- conected to the data from bookingInformation ----------
@@ -68,26 +67,20 @@ export default function Boka3() {
 
   const closeModal = () => {
     setData({
-namn: "",
-efternamn: "",
-mail: "",
-telefon: "",
-adress: "",
-postnummer: "",
-stad: "",
-}); 
-  setIsOpen(false)
-
-}
+      namn: "",
+      efternamn: "",
+      mail: "",
+      telefon: "",
+      adress: "",
+      postnummer: "",
+      stad: "",
+    });
+    setIsOpen(false);
+  };
   //-------return ---------------------------------
   return (
     <main>
-      <Modal
-        open={isOpen}
-        onClose={closeModal}
-        loga={logo}
-        btnMessage="Stäng"
-      >
+      <Modal open={isOpen} onClose={closeModal} loga={logo} btnMessage="Stäng">
         <div className="modal-text">
           Tack {bookingInfo.namn} för din bokning! <br></br>
           {`${bookingInfo.length} ${bookingInfo.treatment}  
@@ -97,7 +90,6 @@ stad: "",
         </div>
       </Modal>
 
-   
       <form className="boknings-form" onSubmit={handelSubmit}>
         <section>
           <h3>

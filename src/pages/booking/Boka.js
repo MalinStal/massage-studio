@@ -9,18 +9,20 @@ import "react-calendar/dist/Calendar.css";
 
 import style from "./Boka.css";
 //import { bokningsInformation } from '../contexts/atoms';
-import { choiceOfTreatment, bookingInformationPerson } from "../2recoilstate/atoms";
+import {
+  choiceOfTreatment} from '../../recoilstate/atoms'
 
-import { Main } from "../components/Main";
 import Boka2 from "./Boka2";
-import { getWeekday } from "../3utils/datefunction";
+import { getWeekday } from "../../utils/datefunction";
+
+
 
 export default function Boka() {
   //choiceOfTreatment default värde är ett objekt med treatment time & date.
   const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
 
   const navigate = useNavigate();
-  console.log("boka1", bookingInfo)
+  console.log("boka1", bookingInfo);
   //------------------------- treatment option-------------------
   const treatments = [
     "Djup Klassisk Massage",
@@ -36,7 +38,7 @@ export default function Boka() {
       </option>
     );
   });
-  
+
   const chooseTime = timeOption.map((option, key) => {
     return (
       <option value={option} key={key}>
@@ -50,16 +52,18 @@ export default function Boka() {
   const handelChange = (e) => {
     const { name, value } = e.target;
 
-    setBookingInfo((option) => ({ ...option, [name]: value }));
+    setBookingInfo((option) => ({
+      ...option,
+      [name]: value,
+      ["day"]: getWeekday(bookingInfo.date),
+    }));
+
     console.log(bookingInfo);
   };
   const handelSubmit = (e) => {
     e.preventDefault();
     navigate("/Boka2");
-  
   };
-  
-  
 
   // ----- return ------
   return (
@@ -93,11 +97,7 @@ export default function Boka() {
         >
           {chooseTime}
         </select>
-        <button
-          type="submit"
-          className="boka-btn serch-btn"
-         
-        >
+        <button type="submit" className="boka-btn serch-btn">
           Sök
         </button>
       </form>

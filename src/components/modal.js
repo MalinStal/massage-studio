@@ -9,7 +9,7 @@ export default function Modal({ open, onClose, children, btnMessage, loga }) {
     <>
       <div className="overlay" onClick={onClose}></div>
       <div className="modal-open">
-        <img src={loga} className="logo" />
+        <img src={loga} className="logo" alt="loga"/>
         {children}
 
         <button onClick={onClose} className="close-modal-btn boka-btn">

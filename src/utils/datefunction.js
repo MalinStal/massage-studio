@@ -8,10 +8,7 @@ export function dateFunction() {
   const currentDate = `${year}-${month}-${day}`;
   return currentDate;
 }
-/*const today = new Date();
-        const date = today.setDate(today.getDate()); 
-        const defaultValue = new Date(date).toISOString().split('T')[0] 
-        return defaultValue*/
+
 
 export function getWeekday(dateFormat) {
   let d = new Date(dateFormat);

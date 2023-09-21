@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Main from "../components/Main";
+import Main from "../components/main-Content/Main";
 import style from "./Hem-Behandling.css";
 import Modal from "../components/modal";
 import Form from "../components/Form";
-import { modalIsOpen } from "../2recoilstate/atoms";
+import { modalIsOpen } from "../recoilstate/atoms";
 import { useRecoilState } from "recoil";
-import logo from '../components/pictures/massage-logo.png'
+import logo from "../components/pictures/massage-logo.png";
 
 //ATT GÖRA I DENNA FIL
 //ska något basik innehåll frö utfullnad
@@ -13,18 +13,16 @@ import logo from '../components/pictures/massage-logo.png'
 //ev fixa ett bild spel
 //skapa socialamedier bilder till sidan
 export default function Hem() {
-
-  //detta är till moddalen på 
+  //detta är till moddalen på
   //const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
- // setIsOpen(true)
+  // setIsOpen(true)
 
   //const closeModal = (() => {
- // })
+  // })
   useEffect(() => {}, []);
   return (
     <div>
-    
-    {/*  
+      {/*  
     får inte denna modal att fungera verkar bli någon sort infinit loop ....
     <Modal 
      open={isOpen} 
@@ -42,7 +40,7 @@ export default function Hem() {
         btnmeddelande={"stäng"} 
       
         />*/}
-    
+
       <section className="home-section">
         <article className="home-artical">
           <h3 className="h3-headline">Varför djup klassisk massage?</h3>

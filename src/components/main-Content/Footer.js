@@ -1,9 +1,8 @@
 import React from 'react'
 import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
-import Form from './Form'
-import logo from './pictures/massage-logo.png'
-
+import Form from '../Form'
+import logo from '../pictures/massage-logo.png'
 
 export default function Footer() {
   return (
@@ -24,7 +23,7 @@ export default function Footer() {
             </li>
         </ul>
     </nav>
-    <img src={logo} className="logo-aside" />
+    <img src={logo} className="logo-aside" alt='loga' />
       <section className="section , search-section">
 
         <label>SÖK</label>

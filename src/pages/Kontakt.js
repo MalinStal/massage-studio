@@ -1,24 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { modalIsOpen } from "../2recoilstate/atoms";
+
 import style from "./Kontakt.css";
-import Main from "../components/Main";
+
+import { modalIsOpen } from "../recoilstate/atoms";
 import Modal from "../components/modal";
 import logo from "../components/pictures/massage-logo.png";
 
-//ATT GÖRA I DENNA FIL
-/* ` ev skriva ut detta i modalen 
-Name: ${formData.name}, E-mail: ${formData.mail} Medelande: ${formData.text}.
-`)*/
 
 export default function Kontakt() {
-  //------------state till modalen------------
+  //------------state for the modal------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
 
   // ------------state and event for the form -----------------
   const [formData, setFormData] = useState({ name: "", mail: "", text: "" });
- 
+
   const handelChange = (event) => {
     const { name, value } = event.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
@@ -26,9 +23,9 @@ export default function Kontakt() {
 
   const HandelSubmit = (event) => {
     event.preventDefault();
-    
+
     console.log(formData);
-    setFormData({ name: "", mail: "", text: "" });
+
     setIsOpen(true);
   };
 
@@ -37,11 +34,19 @@ export default function Kontakt() {
     <>
       <Modal
         open={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => {
+          setFormData({ name: "", mail: "", text: "" });
+          setIsOpen(false);
+        }}
         loga={logo}
-       
         btnMessage="Stäng"
-      > <div>Hej  {formData.name}! Tack för ditt meddelande. <br></br>Vi svarar inom 24 timmar.</div> </Modal>
+      >
+        {" "}
+        <div>
+          Hej {formData.name}! Tack för ditt meddelande. <br></br>Vi svarar inom
+          24 timmar.
+        </div>{" "}
+      </Modal>
 
       <section className="form-section">
         <h3 className="headline">Kontakt Oss</h3>

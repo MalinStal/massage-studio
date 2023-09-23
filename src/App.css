@@ -15,6 +15,11 @@ body {
 :root {
 
     --background-header: rgba(213, 203, 171, 0.557);
-    --background-main: rgba(226, 226, 218, 0.806);
-    --background-aside: rgba(213, 203, 171, 0.312);
+    --background-main: white;
+    --back: rgba(226, 226, 218, 0.806);
+
+}
+
+.Arrow-up {
+    margin-left: 90%;
 }

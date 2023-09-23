@@ -6,7 +6,7 @@ import style from "./Kontakt.css";
 
 import { modalIsOpen } from "../recoilstate/atoms";
 import Modal from "../components/modal";
-import logo from "../components/pictures/massage-logo.png";
+import logo from "../pictures/massage-logo.png";
 
 
 export default function Kontakt() {

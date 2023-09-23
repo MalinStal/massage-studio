@@ -2,7 +2,11 @@ import React from 'react'
 import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
 import Form from '../Form'
-import logo from '../pictures/massage-logo.png'
+import logo from '../../pictures/massage-logo.png'
+
+import { FacebookLogo, InstagramLogo, LinkedinLogo} from '@phosphor-icons/react'
+
+
 
 export default function Footer() {
   return (
@@ -22,7 +26,14 @@ export default function Footer() {
                 <Link className='nav-link' to="/Kontakt">Kontakta Oss</Link>
             </li>
         </ul>
+ 
     </nav>
+    <div>
+    <FacebookLogo size={32}  />
+    <InstagramLogo size={32} />
+    <LinkedinLogo size={32} />
+
+    </div>
     <img src={logo} className="logo-aside" alt='loga' />
      
       <section className="section , open-hours">

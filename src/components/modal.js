@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 import useState from "react";
-import style from "./modal.css";
+import style from "./modal-comments.css";
 
 export default function Modal({ open, onClose, children, btnMessage, loga }) {
   if (!open) return null;

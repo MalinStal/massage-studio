@@ -3,21 +3,14 @@ import Main from "../components/main-Content/Main";
 import style from "./Hem-Behandling.css";
 import Modal from "../components/modal";
 import Form from "../components/Form";
-import { modalIsOpen } from "../recoilstate/atoms";
+import { modalIsOpen, getCommentsState } from "../recoilstate/atoms";
 import { useRecoilState } from "recoil";
-import logo from "../components/pictures/massage-logo.png";
+import logo from "../pictures/massage-logo.png";
 
-//ATT GÖRA I DENNA FIL
-//ska något basik innehåll frö utfullnad
-//skapa en fetch på comentarer att använda som kund recentioner
-//ev fixa ett bild spel
-//skapa socialamedier bilder till sidan
+import { Comments } from "../components/coments";
+
 export default function Hem() {
-
-  fetch('https://dummyjson.com/comments')
-.then(res => res.json())
-.then(console.log);
-
+ 
   return (
     <div>
 
@@ -43,6 +36,8 @@ export default function Hem() {
             själv en professionell massage minskar man trötthet, värk i rygg och
             nacke samt axlar
           </p>
+
+          <img className="massage-img" src="https://hips.hearstapps.com/hmg-prod/images/spa-woman-female-enjoying-massage-in-spa-centre-royalty-free-image-492676582-1549988720.jpg?crop=0.659xw:0.988xh;0.0337xw,0.00240xh&resize=1200:*"/>
         </article>
 
         <article className="home-artical">
@@ -77,11 +72,14 @@ export default function Hem() {
           svullen, spänd eller ojämn. Det kan också kännas tätt och
           sammandraget, även när du försöker koppla av, och de är ofta känsliga
           för beröring. Det drabbade området kan till och med bli inflammerat
-          eller svullet.
+          eller svullet. <br></br>
+          <img className="massage-img" src="https://la-clinique-naturelle.ch/wp-content/uploads/2022/03/massage-detente-1300x650.jpg"/>
+          
         </article>
+        
       </section>
       <section className="home-section">
-
+        <Comments/>
       </section>
     </div>
   );

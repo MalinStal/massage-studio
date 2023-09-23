@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import { useRecoilState } from "recoil";
 import { Navigate, useNavigate } from "react-router-dom";
-
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 import style from "./Boka.css";
 //import { bokningsInformation } from '../contexts/atoms';
@@ -51,7 +48,9 @@ export default function Boka({style}) {
   });
 
   //-------handel change and submit ------------
-
+ useEffect(( ) => {
+  console.log(bookingInfo)
+ }, [bookingInfo])
   const handelChange = (e) => {
     const { name, value } = e.target;
 
@@ -61,7 +60,8 @@ export default function Boka({style}) {
       ["day"]: getWeekday(bookingInfo.date),
     }));
 
-    console.log(bookingInfo);
+   
+    
   };
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -73,6 +73,8 @@ export default function Boka({style}) {
     <main>
       <form className={"boknings-form"}  onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
+       
+        
         <label className="form-label"> Välj datum: </label>
         <input
           

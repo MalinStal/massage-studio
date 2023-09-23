@@ -9,7 +9,7 @@ import {
 } from "../../recoilstate/atoms";
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
-import logo from "../../components/pictures/massage-logo.png";
+import logo from "../../pictures/massage-logo.png";
 import { Formtest } from "../../components/formtest";
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter

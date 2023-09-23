@@ -109,7 +109,7 @@ export function GetTimeScadual() {
   }
   if (bookingInfo.day == "Söndag") {
     return (
-      <div> Idag har vi tyvärr inga tider sök gärna på en annan dag! </div>
+      <div> Söndagar har vi tyvärr stängt, sök gärna på en annan dag! </div>
     );
   } else {
     if (bookingInfo.length === "30 minuter") {

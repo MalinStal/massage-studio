@@ -1,5 +1,5 @@
 import style from "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Header from "./components/main-Content/Header";
 import Footer from "./components/main-Content/Footer";
@@ -13,13 +13,33 @@ import Boka2 from "./pages/booking/Boka2";
 import Boka3 from "./pages/booking/Boka3";
 import Kontakt from "./pages/Kontakt";
 
+import { ArrowCircleUp } from "@phosphor-icons/react";
+import { useEffect, useRef } from "react";
 
-function App() {
+function App() 
+{const arrowup = useRef(null)
+  /* const handelScrollEvent = () => {
+  if( arrowup.current && window.screen.width >= 480) {
+    if (window.pageYOffset >= 70)
+  }
+}*/
+ 
+
+ const location=useLocation()
+  const b1= location.pathname === "/Boka";
+  const b2= location.pathname === "/Boka2";
+  const b3= location.pathname === "/Boka3";
+const showMain =b1 + b2 + b3;
+ 
+ 
+  useEffect(() => {
+    //window.addEventListener('scroll', handelScrollEvent)
+  }, [])
   return (
     <>
       <Header />
-      <Main />
-
+      {!showMain && (<Main />)}
+        <ArrowCircleUp size={32} className="Arrow-up" ref={arrowup}/>
       <Routes>
         <Route index element={<Hem />} />
         <Route path="/Behandling" element={<Behandling />} />
@@ -29,10 +49,10 @@ function App() {
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/addminpage" element={<Addminpage />} />
       </Routes>
-
+      
       <Footer />
     </>
   );
-}
+  }
 
 export default App;

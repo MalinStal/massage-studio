@@ -1,5 +1,8 @@
 import React from "react";
 import style from "./Hem-Behandling.css";
+import trigger from '../pictures/massagetrigger2.jpg'
+import avslappnande from '../pictures/de- är-gött-massage.jpg'
+import klassisk from '../pictures/gomassage.jpg'
 
 export default function Behandling() {
   return (
@@ -80,6 +83,7 @@ export default function Behandling() {
             motverkar spänningar vid smärttillstånd Naturligtvis väljer du själv
             hur kraftfull du önskar din behandling.
           </p>
+          <img className="massage-img"src={klassisk}/>
         </article>
         <article className="home-artical">
           <h3>Triggerpunkt Massage</h3>
@@ -90,6 +94,7 @@ export default function Behandling() {
             muskelknuten tills den mjuknar och släpper. I allvarligare fall av
             muskelknutar kan sjukgymnastik rekommenderas.
           </p>
+          <img className="massage-img"src={trigger}/>
         </article>
         <article className="home-artical">
           <h3>Avslappnande Massage</h3>
@@ -109,6 +114,7 @@ export default function Behandling() {
             min handmassage 20 min ansikts-, nack- & skalpmassage En helt
             ljuvlig stund
           </p>
+          <img className="massage-img"src={avslappnande}/>
         </article>
       </section>
     </main>

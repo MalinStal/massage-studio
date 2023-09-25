@@ -15,7 +15,7 @@
 .form-input {
     width: 80%;
     padding: 7px;
-    border: none;
+    background-color: rgb(255, 250, 240);
   
     border-radius: 20px;
 }

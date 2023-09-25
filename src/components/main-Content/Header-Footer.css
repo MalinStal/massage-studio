@@ -4,10 +4,11 @@
     
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
-    position: relative;
+   
     top: 0;
     left: 0;
     width: 100%;
+   
     z-index: 999;
    text-align: center;
     letter-spacing: 2px;

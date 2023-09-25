@@ -13,6 +13,8 @@ import malin from '../pictures/malin.jpg'
 import { useNavigate } from "react-router-dom";
 import { getLocalTime } from "../utils/datefunction";
 
+
+
 export function GetTimeScadual() {
   const time30 = useRecoilValue(freeTimes30WeekDay);
   const time60 = useRecoilValue(freeTimes60WeekDay);
@@ -36,7 +38,9 @@ export function GetTimeScadual() {
     borderRadius: "50px",
   };
 
-  // problemet med denna if statement mellan vardag och lördag är att uppdateringen av själva dagen inte följer med bokningen så det hella tiden är 1 steg efter dvs jag måste ändra datum 2 gånger för att dagen sak ändras
+  if (bookingInfo.time === timeList30.value) {
+
+  }
   if (bookingInfo.day == "Lördag") {
    
     if (bookingInfo.length === "30 minuter") {
@@ -85,7 +89,7 @@ export function GetTimeScadual() {
         );
       });
 
-      return timeList60;
+      return console.log(timeList60);
     } else if (bookingInfo.length === "90 minuter") {
       const timeList90 = time90S.map((time, key) => {
         return (

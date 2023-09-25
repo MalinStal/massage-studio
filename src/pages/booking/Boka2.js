@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useRecoilValue, useRecoilState } from "recoil";
 
@@ -19,9 +19,10 @@ import { getWeekday, nextDay } from "../../utils/datefunction";
 import Boka from "./Boka";
 
 
+
 export default function Boka2() {
   const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
-  
+  const [count, setCount] = useState(1)
   const time30 = useRecoilValue(freeTimes30WeekDay);
   const time60 = useRecoilValue(freeTimes60WeekDay);
   const time90 = useRecoilValue(freeTimes90WeekDay);
@@ -31,12 +32,13 @@ export default function Boka2() {
 
   const chDate= bookingInfo.date
 
-const nextDayClick = (() => {
- 
+  function changeDay() {
+     
+  setCount(count + 1);
   
     setBookingInfo((info) => ({
       ...info,
-      ["date"]: nextDay(chDate,1)
+      ["date"]: nextDay(chDate,count)
       
     })); 
     
@@ -47,6 +49,12 @@ const nextDayClick = (() => {
     
     console.log(bookingInfo)
    
+  }
+ const nextDayClick = (() => {
+  setCount( count+ 1);
+  console.log(count)
+  console.log(bookingInfo)
+   return changeDay()
   })
   //-------------- time scadual ---------
 
@@ -55,7 +63,7 @@ const nextDayClick = (() => {
      {/*<Boka style={"booking-serch-2"}/>*/}
       <section>
         <h3 className="booking-date-headline">
-          {getWeekday(bookingInfo.date) + " " + bookingInfo.date}{" "}
+          {bookingInfo.day + " " + bookingInfo.date}{" "}
         </h3>
         <button onClick={nextDayClick}>next day</button> 
         <ul className="render-booking-ul">{GetTimeScadual()}</ul>

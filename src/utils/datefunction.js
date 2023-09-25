@@ -1,11 +1,13 @@
 import React from "react";
 
 export function dateFunction() {
-  const newDate = new Date();
-  const day = newDate.getDate().toString().padStart(2, 0);
+  const newDate = new Date(); 
+  const days  =(newDate.getDay())
+  const day  =(newDate.getDay())
+  const dayDate = newDate.getDate().toString().padStart(2, 0);
   const month = (newDate.getMonth() + 1).toString().padStart(2, 0);
   const year = newDate.getFullYear();
-  const currentDate = `${year}-${month}-${day}`;
+  const currentDate = `${year}-${month}-${dayDate}`;
   return currentDate;
 }
 
@@ -27,10 +29,17 @@ export function getWeekday(dateFormat) {
 
   return day;
 }
-
+export function getLocalTime() {
+  const newDate= new Date()
+  const hours = newDate.getHours().toString().padStart(2,0);
+  const minutes = newDate.getMinutes().toString().padStart(2,0);
+  const timeIs= `${hours} ${minutes}`
+  return timeIs
+}
 
 
 export function nextDay(date, one){
+  
   getWeekday()
   const weekdays = [
     "Söndag",
@@ -44,7 +53,7 @@ export function nextDay(date, one){
   const newDate = new Date(date);
  
   const day = (newDate.getDate()+ one).toString().padStart(2, 0);
-  const weekday  =(newDate.getDay()+ 1)
+  const weekday  =(newDate.getDay() +1);
   const month = (newDate.getMonth() + 1).toString().padStart(2, 0);
   const year = newDate.getFullYear();
   const anotherday = `  ${year}-${month}-${day}`;

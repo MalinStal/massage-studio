@@ -10,7 +10,7 @@ import {
   choiceOfTreatment} from '../../recoilstate/atoms'
 
 import Boka2 from "./Boka2";
-import { getWeekday, dateFunction  } from "../../utils/datefunction";
+import { getWeekday, getWeekday2, dateFunction  } from "../../utils/datefunction";
 
 
 
@@ -48,16 +48,17 @@ export default function Boka({style}) {
   });
 
   //-------handel change and submit ------------
- useEffect(( ) => {
+
   console.log(bookingInfo)
- }, [bookingInfo])
+
   const handelChange = (e) => {
     const { name, value } = e.target;
+
 
     setBookingInfo((option) => ({
       ...option,
       [name]: value,
-      ["day"]: getWeekday(bookingInfo.date),
+      ["day"]: (getWeekday(bookingInfo.date)),
     }));
 
    

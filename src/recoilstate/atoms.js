@@ -1,6 +1,6 @@
 import React from "react";
 import { atom } from "recoil";
-import { dateFunction, getWeekday } from "../utils/datefunction";
+import { dateFunction, getWeekday, getLocalTime } from "../utils/datefunction";
 
 // ------------time kontakt infomrmation------------
 export const kontaktInformation = atom({
@@ -28,7 +28,7 @@ export const choiceOfTreatment = atom({
     length: "60 minuter",
     date: dateFunction(),
     day: getWeekday(dateFunction()),
-    time: ""
+    time: getLocalTime()
   },
 });
 

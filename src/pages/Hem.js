@@ -6,14 +6,14 @@ import Form from "../components/Form";
 import { modalIsOpen, getCommentsState } from "../recoilstate/atoms";
 import { useRecoilState } from "recoil";
 import logo from "../pictures/massage-logo.png";
-
+import { Slideshow } from "../components/slideshow";
 import { Comments } from "../components/coments";
 
 export default function Hem() {
- 
+
   return (
     <div>
-
+      <Slideshow/>
 
       <section className="home-section">
         <article className="home-artical">
@@ -79,8 +79,10 @@ export default function Hem() {
         
       </section>
       <section className="home-section">
-        <Comments/>
+        <Comments />
       </section>
+    
+      
     </div>
   );
 }

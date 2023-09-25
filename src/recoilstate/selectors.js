@@ -1,14 +1,14 @@
 import React from "react";
 import { selector } from "recoil";
-import { checkNext, getWeekday } from "../utils/datefunction";
-import { choiceOfTreatment } from "./atoms";
+import { checkNext, getWeekday, getLocalTime } from "../utils/datefunction";
+import { choiceOfTreatment,  } from "./atoms";
 
 export const nextDayChecker = selector({
     key: "nextDayChecker",
     get: ({get}) => {
         const bookingInformation = get(choiceOfTreatment)
        
-       const bookingDate = choiceOfTreatment.date
+       const bookingDate = bookingInformation.date
        checkNext(bookingDate, 1)
         return
     }

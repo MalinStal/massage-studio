@@ -29,9 +29,15 @@ export default function Footer() {
  
     </nav>
     <div>
-    <FacebookLogo size={32}  />
-    <InstagramLogo size={32} />
-    <LinkedinLogo size={32} />
+      
+<a href="https://www.facebook.com/instagram" target="_blank"><FacebookLogo size={32} color='black'/> </a>
+
+<a href="https://www.instagram.com/" target="_blank"> <InstagramLogo size={32} color='black'/></a>
+
+<a href="https://www.linkedin.com/" target="_blank"> <LinkedinLogo size={32} color='black'/></a>
+
+  
+   
 
     </div>
     <img src={logo} className="logo-aside" alt='loga' />

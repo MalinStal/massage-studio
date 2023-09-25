@@ -10,7 +10,7 @@ import {
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
 import logo from "../../pictures/massage-logo.png";
-import { Formtest } from "../../components/formtest";
+//import { Formtest } from "../../components/formtest";
 //ATT GÖRA I DENNA FIL
 //skapa ett formulär för den valda tiden att boka med kontakt uppgifter
 //gör den funktionel och spara kunden i lokalstorage elelr spara bara den bokade tiden i local storge. det viktga är att den bokade tiden försvinner från kaländenr.
@@ -20,7 +20,7 @@ export default function Boka3() {
   const [boking, setBoking] = useState([]);
 
   const [bookInfo, setBookinfo] = useRecoilState(choiceOfTreatment);
-
+  console.log(bookInfo)
   const handelChange = (event) => {
     const { name, value } = event.target;
     setData((data) => ({ ...data, [name]: value }));

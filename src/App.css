@@ -6,20 +6,23 @@
 }
 
 body {
-    background-color: var(--background-main);
+  
     min-height: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
+    background-color: var(--background-main);
 }
 
 :root {
 
-    --background-header: rgba(213, 203, 171, 0.557);
-    --background-main: white;
-    --back: rgba(226, 226, 218, 0.806);
+    --background-header:rgba(213, 203, 171, 0.557);
+    --background-main: rgba(226, 226, 218, 0.806);
+  
+   
 
 }
 
 .Arrow-up {
+    margin-top: 20px;
     margin-left: 90%;
 }

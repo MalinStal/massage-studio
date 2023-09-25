@@ -31,6 +31,7 @@
  .table-pricelist {
     border: 1px solid;
     padding: 20px;
+    background-color: white;
  }
  .table-pricelist td {
     border: 1px solid;

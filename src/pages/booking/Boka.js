@@ -58,7 +58,7 @@ export default function Boka({style}) {
     setBookingInfo((option) => ({
       ...option,
       [name]: value,
-      ["day"]: (getWeekday(bookingInfo.date)),
+      ["day"]: (getWeekday(value)),
     }));
 
    
@@ -71,7 +71,7 @@ export default function Boka({style}) {
 
   // ----- return ------
   return (
-    <main>
+    <main className={style}>
       <form className={"boknings-form"}  onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
        

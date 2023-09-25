@@ -31,14 +31,14 @@ export default function Boka2() {
   const time90S = useRecoilValue(freeTimes90Saturday);
 
   const chDate= bookingInfo.date
-
+ 
   function changeDay() {
      
   setCount(count + 1);
   
     setBookingInfo((info) => ({
       ...info,
-      ["date"]: nextDay(chDate,count)
+      ["date"]: nextDay(bookingInfo.date,count)
       
     })); 
     
@@ -60,7 +60,7 @@ export default function Boka2() {
 
   return (
     <div className="div-booking-schedule">
-     {/*<Boka style={"booking-serch-2"}/>*/}
+   <Boka style={"booking-serch-2"}/>
       <section>
         <h3 className="booking-date-headline">
           {bookingInfo.day + " " + bookingInfo.date}{" "}

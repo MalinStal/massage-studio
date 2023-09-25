@@ -1,20 +1,36 @@
 import React from "react";
 import { useState } from "react";
-import { fetchBooking } from "../../storage/local-storage";
+import { fetchBooking, getAllInStorage } from "../../storage/local-storage";
 
-//rederar ut alla bokningar i local storage
+
 export default function Addminpage() {
-  const bookings = fetchBooking();
-  const [data, setData] = useState(bookings);
-  //får ite denna JSON pars att fungera
-  //const newData= JSON.parse(data)
-  console.log(data);
+  const bookings = fetchBooking(1);
 
-  //const leta =  JSON.parse(data)
+  const [data, setData] = useState(bookings);
+ 
+ console.log(data)
+ const renderData = data.map(value => {
+    return <li>{value.treatment}</li>
+  }) 
+// håller på att få localstorage att erndera ut alla objekt på samma gång. fungar inte i nuläget men att rendera ut på 1 id går bra med 
+//renderdata. jobba ev bara vidare med detta och få ut alla iden kankse går att loppa på annat sätt i fetchen googla. 
+  /*  
+  
+   const [allstor,setAllstor] = useState(allinstorager)
+ console.log(allinstorager)
+
+  const renderallinstor = allstor.map(value => {
+    return <li>{value.treatment}</li>
+  }) */
+
 
   return (
     <div>
-      <ul> {data}</ul>
+      <ul> {renderData}</ul>
+      
+    
+      
+   
 
       <table className="table-pricelist">
         <tr>

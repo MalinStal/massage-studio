@@ -30,45 +30,30 @@ export default function Boka2() {
   const time60S = useRecoilValue(freeTimes60Saturday);
   const time90S = useRecoilValue(freeTimes90Saturday);
 
-  const chDate= bookingInfo.date
  
-  function changeDay() {
-     
-  setCount(count + 1);
-  
-    setBookingInfo((info) => ({
-      ...info,
-      ["date"]: nextDay(bookingInfo.date,count)
-      
-    })); 
-    
-    setBookingInfo((info) => ({
-      ...info,
-       ["day"]: getWeekday(bookingInfo.date)
-    }));
-    
-    console.log(bookingInfo)
-   
-  }
- const nextDayClick = (() => {
-  setCount( count+ 1);
-  console.log(count)
-  console.log(bookingInfo)
-   return changeDay()
+ const nextDay = (() => {
+
+  setBookingInfo((option) => ({
+    ...option,
+    ["date"]: nextDay(bookingInfo.date, count),
+    ["day"]: getWeekday(bookingInfo.date),
+  })); 
   })
   //-------------- time scadual ---------
-
-  return (
+//
+  return (  
+  <>
+  <Boka style={"booking-"}/>
     <div className="div-booking-schedule">
-   <Boka style={"booking-serch-2"}/>
+ 
       <section>
         <h3 className="booking-date-headline">
           {bookingInfo.day + " " + bookingInfo.date}{" "}
         </h3>
-        <button onClick={nextDayClick}>next day</button> 
+      
         <ul className="render-booking-ul">{GetTimeScadual()}</ul>
       </section>
 
-      </div>
+    </div></>
   );
 }

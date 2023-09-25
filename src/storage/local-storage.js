@@ -1,13 +1,39 @@
 import React from "react";
 //local storage kan bara spara ett id och ett värde som måste vara string/json format 
 export function saveBooking(id, booking) {
-    const object = JSON.stringify(booking)
+    const obj = booking
+    const object = JSON.stringify(obj)
     localStorage.setItem(id, object );
 }
-// en function som skriver ut all data som finns i localstorage och lägger det i en array eftersom att vi inte kan hantera objekt på ett bra sätt  
+// skriver ut en lista med ett objkt beroende på vilket id du söker i localstorage  
 export function fetchBooking(id) {
+    const key = localStorage.getItem(id) 
+    let value = JSON.parse(key) 
+    let list = [value]
+     return list
+
+    }
+   export function getAllInStorage() {
+     let values = [],
+      keys = Object.keys(localStorage),
+       i = keys.length
+    
+         while ( i-- ) {
+   let json = localStorage.getItem(keys[i]);
+   let obj= JSON.parse(json)
    
- let values = [],
+   values.push(obj); 
+          //denna kod fungerar inte, går inte att få in parse i denna kod innan du renderar ut listan inte heller går det att få ut i renderingen av functionen
+ 
+        }
+        
+//this (i--) condition means  = that if (i = i - 1) is bigger than 0, continue looping, other wise quit
+  
+       
+        return values;
+   }
+/*skriver ut allt ur local storage 
+       let values = [],
       keys = Object.keys(localStorage),
        i = keys.length
     
@@ -19,14 +45,10 @@ export function fetchBooking(id) {
   
        
         return values;
-    }
-   
-/*skriver ut allt ur local storage 
-   
- 
+ skriver ut vald id
     const json = JSON.stringify(localStorage)
     const list = []
- const key = localStorage.getItem("booking"+id)
+ const key = localStorage.getItem(id)
  let value = JSON.parse(key) 
-  return 
+  return value
  */

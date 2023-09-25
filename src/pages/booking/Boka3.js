@@ -6,6 +6,7 @@ import {
   choiceOfTreatment,
   bookingInformationPerson,
   modalIsOpen,
+  createIdState
 } from "../../recoilstate/atoms";
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
@@ -18,15 +19,15 @@ export default function Boka3() {
   const [data, setData] = useRecoilState(bookingInformationPerson);
 
   const [boking, setBoking] = useState([]);
-
+  const [id,setId] = useRecoilState(createIdState)
   const [bookInfo, setBookinfo] = useRecoilState(choiceOfTreatment);
-  console.log(bookInfo)
+
   const handelChange = (event) => {
     const { name, value } = event.target;
     setData((data) => ({ ...data, [name]: value }));
   };
   // ger ut ett id random för att kunna spara bokningen i lokal storage
-  const id = "booking" + Math.floor(Math.random() * 100);
+  //const id = "booking" + Math.floor(Math.random() * 100);
 
   //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista
   const handelSubmit = (e) => {
@@ -39,6 +40,7 @@ export default function Boka3() {
     const postnummer = data.postnummer;
     const stad = data.stad;
 
+      setId(id + 1);
     setBookinfo((data) => ({
       ...data,
       namn,

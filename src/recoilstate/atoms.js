@@ -2,7 +2,7 @@ import React from "react";
 import { atom } from "recoil";
 import { dateFunction, getWeekday, getLocalTime } from "../utils/datefunction";
 
-// ------------time kontakt infomrmation------------
+// ------------ contact information------------
 export const kontaktInformation = atom({
   key: "kontaktInformation",
   default: "",
@@ -20,7 +20,7 @@ export const bookingInformationPerson = atom({
     stad: "",
   },
 });
-// ------------handeling tretment choise------------
+// ------------handling treatment choice------------
 export const choiceOfTreatment = atom({
   key: "choiceOfTreatment",
   default: {
@@ -37,6 +37,10 @@ export const bookingInformation = atom({
   default: [],
 });
 
+export const createIdState = atom ({
+  key:"bookingId",
+  default: 1
+})
 // ------------modal states------------
 
 export const modalIsOpen = atom({

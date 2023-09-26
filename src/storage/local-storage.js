@@ -14,24 +14,25 @@ export function fetchBooking(id) {
 
     }
    export function getAllInStorage() {
-     let values = [],
-      keys = Object.keys(localStorage),
-       i = keys.length
-    
-         while ( i-- ) {
-   let json = localStorage.getItem(keys[i]);
-   let obj= JSON.parse(json)
-   
-   values.push(obj); 
+    let storage = []
+    let index = 0
+
+    while (localStorage.key(index) !== null) {
+        const key = localStorage.key(index);
+        storage[key] = JSON.parse(localStorage.getItem(key))
+        index += 1
+    } 
+
+    return storage;
+}
           //denna kod fungerar inte, går inte att få in parse i denna kod innan du renderar ut listan inte heller går det att få ut i renderingen av functionen
  
-        }
+        
         
 //this (i--) condition means  = that if (i = i - 1) is bigger than 0, continue looping, other wise quit
   
        
-        return values;
-   }
+   
 /*skriver ut allt ur local storage 
        let values = [],
       keys = Object.keys(localStorage),

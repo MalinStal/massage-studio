@@ -16,14 +16,27 @@ import Kontakt from "./pages/Kontakt";
 import { ArrowCircleUp } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
 
-function App() 
-{const arrowup = useRef(null)
-  /* const handelScrollEvent = () => {
+function App() {
+  const arrowup = useRef(null)
+  
+  
+   const handelScrollEvent = () => {
   if( arrowup.current && window.screen.width >= 480) {
-    if (window.pageYOffset >= 70)
+    if (window.scrollY >= 70){
+      arrowup.current.classList.add('arrowup-scroll')
+    } else {
+      arrowup.current.classList.remove('arrowup-scroll')
+    }
   }
-}*/
- 
+}
+
+const scrollBackTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 
  const location=useLocation()
   const b1= location.pathname === "/Boka";
@@ -33,13 +46,14 @@ const showMain =b1 + b2 + b3;
  
  
   useEffect(() => {
-    //window.addEventListener('scroll', handelScrollEvent)
+    window.addEventListener('scroll', handelScrollEvent)
+    return () => window.removeEventListener('scroll',handelScrollEvent)
   }, [])
   return (
     <>
       <Header />
       {!showMain && (<Main />)}
-        <ArrowCircleUp size={32} className="Arrow-up" ref={arrowup}/>
+      <ArrowCircleUp size={32} className="Arrow-up" ref={arrowup} onClick={scrollBackTop}/>
       <Routes>
         <Route index element={<Hem />} />
         <Route path="/Behandling" element={<Behandling />} />
@@ -49,7 +63,7 @@ const showMain =b1 + b2 + b3;
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/addminpage" element={<Addminpage />} />
       </Routes>
-      
+     
       <Footer />
     </>
   );

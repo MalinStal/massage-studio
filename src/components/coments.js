@@ -59,7 +59,26 @@ export function Comments() {
         <Star size={25} color="yellow" weight="fill" />
         <Star size={25} color="yellow" weight="fill" />
       </h3>
-
+      <Modal loga={logo} open={isOpen} onClose={handelClick} btnMessage="dela din recension">
+        <button className="close-btn-modal" onClick={handelClick}>X</button>
+        <label>Namn</label>
+        <input
+        className="recension-name"
+          required
+          name="namn"
+          value={input.namn}
+          onChange={handelChange}
+        />
+        <label>Recension</label>
+        <textarea
+          className="recension-text"
+          required
+          name="recension"
+          value={input.recension}
+          onChange={handelChange}
+        />
+      
+      </Modal>
       <section className="comment-section slider">
         <div id="scrolling" className="scrolldiv">
           {newComment.map((comment, index) => {
@@ -90,31 +109,13 @@ export function Comments() {
           })}
         </div>
       </section>
-
+     
       <div>
         <NotePencil size={35} onClick={openModal} />
         Varit hos oss förut? Lämna gärna en recension!
       </div>
 
-      <Modal loga={logo} open={isOpen} onClose={handelClick} btnMessage="dela din recension">
-        <label>Namn</label>
-        <input
-        className="recension-name"
-          required
-          name="namn"
-          value={input.namn}
-          onChange={handelChange}
-        />
-        <label>Recension</label>
-        <textarea
-          className="recension-text"
-          required
-          name="recension"
-          value={input.recension}
-          onChange={handelChange}
-        />
-      
-      </Modal>
+
     </>
   );
 }

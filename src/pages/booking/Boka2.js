@@ -43,7 +43,7 @@ export default function Boka2() {
 //
   return (  
   <>
-  <Boka style={"booking-"}/>
+  <Boka style={"booking-search-page2"}/>
     <div className="div-booking-schedule">
  
       <section>

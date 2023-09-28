@@ -6,18 +6,16 @@ export default function Form({
   titel2,
   inputType2,
   btn,
-  btnClassName
+  btnClassName,
 }) {
   return (
     <form>
-      <label> {titel1}</label>
+      <label > {titel1}</label>
       <input type={inputType} /> <br></br>
       <label> {titel2}</label>
-      <input type={inputType2} /><br></br>
+      <input type={inputType2} />
+      <br></br>
       <button className={btnClassName}>{btn}</button>
     </form>
-    
   );
 }
-
-

@@ -71,8 +71,8 @@ export default function Boka({style}) {
 
   // ----- return ------
   return (
-    <main className={style}  >
-      <form className={"boknings-form"} onSubmit={handelSubmit}>
+    <main  className={style} >
+      <form  className={"boknings-form"} onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
        
         

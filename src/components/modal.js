@@ -3,11 +3,10 @@ import useState from "react";
 import style from "./modal-comments.css";
 
 export default function Modal({ open, onClose, children, btnMessage, loga }) {
-  if (!open) return null;
-  
+ 
   return (
-    <>
-      <div className="overlay" onClick={onClose}></div>
+    <section> <div className="overlay" ></div>
+     {!open ? null :
       <div className="modal-open">
         <img src={loga} className="logo" alt="loga"/>
         {children}
@@ -15,7 +14,7 @@ export default function Modal({ open, onClose, children, btnMessage, loga }) {
         <button onClick={onClose} className="close-modal-btn boka-btn">
           {btnMessage}
         </button>
-      </div>
-    </>
+      </div>}
+    </section>
   );
 }

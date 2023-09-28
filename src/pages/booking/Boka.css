@@ -32,7 +32,7 @@
     border: 1px solid;
     margin-bottom: 10px;
  }
-/* style for booking schedual*/
+/* style for booking schedule*/
 
 .div-booking-schedule{
     min-height: 1000px;
@@ -51,7 +51,7 @@ list-style: none;
 .render-booking-li {
     margin-bottom: 10px;
     padding: 7px;
-    width: 80%;
+    width: 60%;
     background: rgba(255, 255, 255, 0.728);
  border-radius: 20px;
     

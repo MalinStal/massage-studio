@@ -14,21 +14,18 @@ import Boka3 from "./pages/booking/Boka3";
 import Kontakt from "./pages/Kontakt";
 
 import { ArrowCircleUp } from "@phosphor-icons/react";
-import { useEffect, useRef } from "react";
+import { useEffect,useState } from "react";
+import { useRecoilState } from "recoil";
+import { modalIsOpen } from "./recoilstate/atoms";
 
 function App() {
-  const arrowup = useRef(null)
-  
-  
-   const handelScrollEvent = () => {
-  if( arrowup.current && window.screen.width >= 480) {
-    if (window.scrollY >= 70){
-      arrowup.current.classList.add('arrowup-scroll')
-    } else {
-      arrowup.current.classList.remove('arrowup-scroll')
-    }
-  }
-}
+const [isOpen,setIsOpen] = useRecoilState(modalIsOpen)
+const location=useLocation()
+
+useEffect(() => {
+   if(isOpen == true) setIsOpen(false)
+   
+}, [location]);
 
 const scrollBackTop = () => {
   window.scrollTo({
@@ -37,25 +34,21 @@ const scrollBackTop = () => {
   });
 };
 
-
- const location=useLocation()
   const b1= location.pathname === "/Boka";
   const b2= location.pathname === "/Boka2";
   const b3= location.pathname === "/Boka3";
-const showMain =b1 + b2 + b3;
+  const showMain =b1 + b2 + b3;
  
- 
-  useEffect(() => {
-    window.addEventListener('scroll', handelScrollEvent)
-    return () => window.removeEventListener('scroll',handelScrollEvent)
-  }, [])
+
+
   return (
     <>
       <Header />
+     
       {!showMain && (<Main />)}
-      <ArrowCircleUp size={32} className="Arrow-up" ref={arrowup} onClick={scrollBackTop}/>
-      <Routes>
-        <Route index element={<Hem />} />
+      <ArrowCircleUp size={32} className="Arrow-up" />
+      <Routes >
+        <Route index element={<Hem />}  />
         <Route path="/Behandling" element={<Behandling />} />
         <Route path="/Boka" element={<Boka />} />
         <Route path="/Boka2" element={<Boka2 />} />

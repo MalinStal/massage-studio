@@ -7,7 +7,6 @@ import logo from '../../pictures/massage-logo.png'
 import { FacebookLogo, InstagramLogo, LinkedinLogo} from '@phosphor-icons/react'
 
 
-
 export default function Footer() {
   return (
    <footer className='footer'>
@@ -27,24 +26,19 @@ export default function Footer() {
             </li>
         </ul>
  
-    </nav>
-    <div>
-      
-<a href="https://www.facebook.com/instagram" target="_blank"><FacebookLogo size={32} color='black'/> </a>
-
-<a href="https://www.instagram.com/" target="_blank"> <InstagramLogo size={32} color='black'/></a>
-
-<a href="https://www.linkedin.com/" target="_blank"> <LinkedinLogo size={32} color='black'/></a>
-
+      </nav>
+      <div>
   
-   
-
-    </div>
-    <img src={logo} className="logo-aside" alt='loga' />
+        <a href="https://www.facebook.com/instagram" target="_blank"><FacebookLogo size={32} color='black'/> </a>
+        <a href="https://www.instagram.com/" target="_blank"> <InstagramLogo size={32} color='black'/></a>
+        <a href="https://www.linkedin.com/" target="_blank"> <LinkedinLogo size={32} color='black'/></a>
+    
+      </div>
+      <img src={logo} className="logo-aside" alt='loga' />
      
       <section className="section , open-hours">
-        <h3>Öppetider:</h3>
 
+        <h3>Öppetider:</h3>
         <ul >
           <li >Måndag: 8-19</li>
           <li>Tisdag: 8-19</li>
@@ -54,14 +48,14 @@ export default function Footer() {
           <li>Lördag: 10-17</li>
           <li>Söndag: stängt</li>
         </ul>
+
       </section>
       <section className="section , news-letter">
-        <Form 
-        titel1={"Namn:"} 
-        titel2={"E-mail:"} 
-        btn={"Prenumerera"}
-        btnClassName={"news-letter-btn"}
-        className="news-letter-form"/>
+      <label>Namn:</label>
+      <input/>
+      <label>Email:</label>
+      <input/>
+      <button>Skicka</button>
       </section>
    </footer>
   )

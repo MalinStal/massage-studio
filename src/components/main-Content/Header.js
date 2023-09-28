@@ -3,8 +3,8 @@ import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
 import logo from '../../pictures/massage-logo.png'
 
-export default function Header() {
 
+export default function Header() {
 
   return (
    <header className='header'>
@@ -13,7 +13,7 @@ export default function Header() {
     <nav className='navbar'>
         <ul className='nav-ul'>
             <li className='nav-li'>
-                <Link className='nav-link' to="/">Hem</Link>
+                <Link className='nav-link' to="/" >Hem</Link>
             </li>
             <li className='nav-li'>
                 <Link className='nav-link' to="/Behandling">Behandling/Priser</Link>

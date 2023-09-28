@@ -39,8 +39,10 @@ export default function Addminpage() {
           <th>kund</th>
         </tr>
         </thead>
-
-        {renderData}
+        <tbody>
+          {renderData}
+        </tbody>
+       
       </table>
 
 

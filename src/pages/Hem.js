@@ -70,9 +70,7 @@ export default function Hem() {
         </article>
       </section>
 
-      <section className="home-section">
-        <Comments />
-      </section> 
+    
     </div>
   );
 }

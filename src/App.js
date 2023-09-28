@@ -17,6 +17,7 @@ import { ArrowCircleUp } from "@phosphor-icons/react";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { modalIsOpen } from "./recoilstate/atoms";
+import { Comments } from "./components/coments";
 
 function App() {
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
@@ -38,15 +39,14 @@ function App() {
   const b1 = location.pathname === "/Boka";
   const b2 = location.pathname === "/Boka2";
   const b3 = location.pathname === "/Boka3";
-  const showMain = b1 + b2 + b3 + b4;
-
+  const NoShow =  b1 + b2 + b3;
 
 
   return (
     <>
       <Header />
 
-      {!showMain && (<Main />)}
+      {!NoShow && (<Main />)}
       <ArrowCircleUp size={32} className="Arrow-up" onClick={scrollBackTop} />
       <Routes >
         <Route index element={<Hem />} />
@@ -57,7 +57,9 @@ function App() {
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/addminpage" element={<Addminpage />} />
       </Routes>
-
+      <section className="home-section">
+      {!NoShow && <Comments />}
+      </section> 
       <Footer />
     </>
   );

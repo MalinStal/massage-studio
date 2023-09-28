@@ -47,3 +47,15 @@
 
 
 }
+.recension-name{
+     padding: 10px;
+     border-radius: 20px;
+     border: none;
+}
+.recension-text{
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+    height: 100px;
+    border: none;
+}

@@ -25,23 +25,15 @@ export default function Boka3() {
   const handelChange = (event) => {
     const { name, value } = event.target;
     setData((data) => ({ ...data, [name]: value }));
-  };
-  // ger ut ett id random för att kunna spara bokningen i lokal storage
-  //const id = "booking" + Math.floor(Math.random() * 100);
 
-  //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    const namn = data.namn;
+     const namn = data.namn;
     const efternamn = data.efternamn;
     const mail = data.mail;
     const telefon = data.telefon;
     const adress = data.adress;
     const postnummer = data.postnummer;
     const stad = data.stad;
-
-      setId(id + 1);
-    setBookinfo((data) => ({
+       setBookinfo((data) => ({
       ...data,
       namn,
       efternamn,
@@ -51,15 +43,28 @@ export default function Boka3() {
       postnummer,
       stad,
     }));
+  };
+
+  // ger ut ett id random för att kunna spara bokningen i lokal storage
+  //const id = "booking" + Math.floor(Math.random() * 100);
+
+  //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista
+  const handelSubmit = (e) => {
+    e.preventDefault();
+   
+
+      setId((prevId) => prevId + 1);
+  
 
     saveBooking(id, bookInfo);
 
     setIsOpen(true);
   };
+
   //--------------- conected to the data from bookingInformation ----------
   const bookingInfo = useRecoilValue(choiceOfTreatment);
 
-  // --------------modal ----------------------------------
+  // ------------------------ modal ----------------------------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
   const navigate = useNavigate();
   const closeModal = () => {
@@ -75,7 +80,7 @@ export default function Boka3() {
     setIsOpen(false);
     navigate("/");
   };
-  //-------return ---------------------------------
+  //----------------------- return ---------------------------------
   return (
     <main>
       <Modal open={isOpen} onClose={closeModal} loga={logo} btnMessage="Stäng">
@@ -134,7 +139,7 @@ export default function Boka3() {
         <input
           type="number"
           required
-          minlength="10"
+          
           className="form-input"
           name="telefon"
           value={data.telefon}
@@ -153,7 +158,7 @@ export default function Boka3() {
         <input
           type="number"
           required
-          minlength="5"
+         
           className="form-input"
           name="postnummer"
           value={data.postnummer}

@@ -3,7 +3,7 @@ import React from "react";
 export function saveBooking(id, booking) {
     const obj = booking
     const object = JSON.stringify(obj)
-    localStorage.setItem(id, object );
+    localStorage.setItem(id, object);
 }
 // skriver ut en lista med ett objkt beroende på vilket id du söker i localstorage  
 export function fetchBooking(id) {
@@ -25,6 +25,7 @@ export function fetchBooking(id) {
 
     return storage;
 }
+
           //denna kod fungerar inte, går inte att få in parse i denna kod innan du renderar ut listan inte heller går det att få ut i renderingen av functionen
  
         

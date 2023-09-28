@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-
+import React from "react";
 import { useRecoilState } from "recoil";
-import { Navigate, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import style from "./Boka.css";
-//import { bokningsInformation } from '../contexts/atoms';
-import {
-  choiceOfTreatment} from '../../recoilstate/atoms'
-
-import Boka2 from "./Boka2";
-import { getWeekday, getWeekday2, dateFunction  } from "../../utils/datefunction";
+import {choiceOfTreatment} from '../../recoilstate/atoms'
+import { getWeekday, dateFunction  } from "../../utils/datefunction";
+import { chooseTime, chooseTreatment } from "../../utils/constants";
 
 
 
@@ -23,62 +17,30 @@ export default function Boka({style}) {
   
   const navigate = useNavigate();
  
-  //------------------------- treatment option-------------------
-  const treatments = [
-    "Djup Klassisk Massage",
-    "Triggerpunkt Massage",
-    "Avslappnande Massage",
-  ];
-  const timeOption = ["30 minuter", "60 minuter", "90 minuter"];
-
-  const chooseTreatment = treatments.map((option, key) => {
-    return (
-      <option value={option} key={key}>
-        {option}
-      </option>
-    );
-  });
-
-  const chooseTime = timeOption.map((option, key) => {
-    return (
-      <option value={option} key={key}>
-        {option}
-      </option>
-    );
-  });
-
   //-------handel change and submit ------------
-
-  console.log(bookingInfo)
-
   const handelChange = (e) => {
     const { name, value } = e.target;
-
 
     setBookingInfo((option) => ({
       ...option,
       [name]: value,
       ["day"]: (getWeekday(value)),
     }));
-
-   
-    
   };
+  
   const handelSubmit = (e) => {
     e.preventDefault();
     navigate("/Boka2");
   };
 
-  // ----- return ------
+ 
   return (
+    <>
     <main  className={style} >
       <form  className={"boknings-form"} onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
-       
-        
         <label className="form-label"> Välj datum: </label>
-        <input
-          
+        <input  
           min={todayDate}
           max={maxDate}
           className="form-date form-label"
@@ -111,5 +73,6 @@ export default function Boka({style}) {
         </button>
       </form>
     </main>
+    </>
   );
 }

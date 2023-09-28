@@ -11,7 +11,7 @@ import {
 } from "../recoilstate/atoms";
 import malin from "../pictures/malin.jpg";
 import { useNavigate } from "react-router-dom";
-import { getLocalTime } from "../utils/datefunction";
+import { getLocalTime, nextDay } from "../utils/datefunction";
 
 export function GetTimeScadual() {
   const time30 = useRecoilValue(freeTimes30WeekDay);
@@ -26,7 +26,7 @@ export function GetTimeScadual() {
 
   const handelClick = (time) => {
     setBookingInfo(time);
-
+  
     navigate("/Boka3");
   };
 
@@ -49,11 +49,8 @@ export function GetTimeScadual() {
             </span>
             <button
               className="render-booking-btn"
-              onClick={() => {
-                handelClick({ ...bookingInfo, time: time });
-              }}
+              onClick={() => {handelClick({ ...bookingInfo, time: time });}}
             >
-              {" "}
               Boka
             </button>
           </li>
@@ -75,7 +72,6 @@ export function GetTimeScadual() {
               className="render-booking-btn"
               onClick={() => handelClick({ ...bookingInfo, time: time })}
             >
-              {" "}
               Boka
             </button>
           </li>
@@ -106,7 +102,7 @@ export function GetTimeScadual() {
       return timeList90;
     }
   }
-  if (bookingInfo.day == "Söndag") {
+  else if (bookingInfo.day == "Söndag") {
     return (
       <div> Söndagar har vi tyvärr stängt, sök gärna på en annan dag! </div>
     );
@@ -123,12 +119,9 @@ export function GetTimeScadual() {
             </span>
             <button
               className="render-booking-btn"
-              onClick={() => {
-                handelClick({ ...bookingInfo, time: time });
-              }}
+              onClick={() => {handelClick({ ...bookingInfo, time: time }); }}
             >
-              {" "}
-              Boka
+             Boka
             </button>
           </li>
         );

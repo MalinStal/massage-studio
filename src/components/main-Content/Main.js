@@ -8,8 +8,8 @@ import { Navigate, useNavigate } from 'react-router-dom'
 export default function Main() {
 
   const navigate = useNavigate();
-  const handelClick = e => {navigate("/boka")}
-  
+  const handelClick = () => {navigate("/boka")}
+
   return (
    <main>
    

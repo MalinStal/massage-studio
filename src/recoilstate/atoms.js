@@ -1,6 +1,6 @@
 import React from "react";
 import { atom } from "recoil";
-import { dateFunction, getWeekday, getLocalTime } from "../utils/datefunction";
+import { dateFunction, getWeekday } from "../utils/datefunction";
 
 // ------------ contact information------------
 export const kontaktInformation = atom({
@@ -28,7 +28,7 @@ export const choiceOfTreatment = atom({
     length: "60 minuter",
     date: dateFunction(),
     day: getWeekday(dateFunction()),
-    time: getLocalTime()
+    time: ""
   },
 });
 
@@ -37,8 +37,8 @@ export const bookingInformation = atom({
   default: [],
 });
 
-export const createIdState = atom ({
-  key:"bookingId",
+export const createIdState = atom({
+  key: "bookingId",
   default: 1
 })
 // ------------modal states------------
@@ -48,15 +48,15 @@ export const modalIsOpen = atom({
   default: false,
 });
 // -------- fetch state --------
-export const getCommentsState = atom ({
+export const getCommentsState = atom({
   key: "getComments",
   default: []
 })
-export const getUsersState = atom ({
+export const getUsersState = atom({
   key: "getUsers",
   default: []
 })
-// ------------time states------------
+// ------------time scadual - states------------
 
 export const freeTimes30WeekDay = atom({
   key: "freeTimes30WeekDay",

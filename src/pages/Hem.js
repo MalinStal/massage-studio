@@ -1,14 +1,6 @@
-import React, { useEffect } from "react";
-import Main from "../components/main-Content/Main";
-import style from "./Hem-Behandling.css";
-import Modal from "../components/modal";
-import Form from "../components/Form";
-import { modalIsOpen, getCommentsState } from "../recoilstate/atoms";
-import { useRecoilState } from "recoil";
-import logo from "../pictures/massage-logo.png";
+import React from "react";
 import { Slideshow } from "../components/slideshow";
 import { Comments } from "../components/coments";
-
 export default function Hem() {
 
   return (
@@ -41,7 +33,7 @@ export default function Hem() {
         </article>
 
         <article className="home-artical">
-          {" "}
+        
           <h3 className="h3-headline">Muskelknutar – Triggerpunkter</h3>
           Muskelknutar/triggerpunkter är ett vanligt problem för våra ryggar och
           är oerhört jobbigt att drabbas av. Dessa knutar har ofta byggts upp
@@ -76,13 +68,11 @@ export default function Hem() {
           <img className="massage-img" src="https://la-clinique-naturelle.ch/wp-content/uploads/2022/03/massage-detente-1300x650.jpg"/>
           
         </article>
-        
       </section>
+
       <section className="home-section">
         <Comments />
-      </section>
-    
-      
+      </section> 
     </div>
   );
 }

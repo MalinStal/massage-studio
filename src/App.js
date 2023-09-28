@@ -1,5 +1,5 @@
 import style from "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Header from "./components/main-Content/Header";
 import Footer from "./components/main-Content/Footer";
@@ -14,41 +14,42 @@ import Boka3 from "./pages/booking/Boka3";
 import Kontakt from "./pages/Kontakt";
 
 import { ArrowCircleUp } from "@phosphor-icons/react";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { modalIsOpen } from "./recoilstate/atoms";
 
 function App() {
-const [isOpen,setIsOpen] = useRecoilState(modalIsOpen)
-const location=useLocation()
+  const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
+  const location = useLocation()
 
-useEffect(() => {
-   if(isOpen == true) setIsOpen(false)
-   
-}, [location]);
+  useEffect(() => {
+    if (isOpen == true) setIsOpen(false)
 
-const scrollBackTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+  }, [location]);
 
-  const b1= location.pathname === "/Boka";
-  const b2= location.pathname === "/Boka2";
-  const b3= location.pathname === "/Boka3";
-  const showMain =b1 + b2 + b3;
- 
+  const scrollBackTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  const navigate= useNavigate()
+  const b4 = navigate.pathname === "/Boka";
+  const b1 = location.pathname === "/Boka";
+  const b2 = location.pathname === "/Boka2";
+  const b3 = location.pathname === "/Boka3";
+  const showMain = b1 + b2 + b3 + b4;
+
 
 
   return (
     <>
       <Header />
-     
+
       {!showMain && (<Main />)}
-      <ArrowCircleUp size={32} className="Arrow-up" />
+      <ArrowCircleUp size={32} className="Arrow-up" onClick={scrollBackTop} />
       <Routes >
-        <Route index element={<Hem />}  />
+        <Route index element={<Hem />} />
         <Route path="/Behandling" element={<Behandling />} />
         <Route path="/Boka" element={<Boka />} />
         <Route path="/Boka2" element={<Boka2 />} />
@@ -56,10 +57,10 @@ const scrollBackTop = () => {
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/addminpage" element={<Addminpage />} />
       </Routes>
-     
+
       <Footer />
     </>
   );
-  }
+}
 
 export default App;

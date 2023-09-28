@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 
 import style from "./Kontakt.css";
@@ -10,10 +10,8 @@ import logo from "../pictures/massage-logo.png";
 
 
 export default function Kontakt() {
-  //------------state for the modal------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
 
-  // ------------state and event for the form -----------------
   const [formData, setFormData] = useState({ name: "", mail: "", text: "" });
 
   const handelChange = (event) => {
@@ -23,13 +21,9 @@ export default function Kontakt() {
 
   const HandelSubmit = (event) => {
     event.preventDefault();
-
-    console.log(formData);
-
     setIsOpen(true);
   };
 
-  // ---------------------retrun ---------------------
   return (
     <>
       <Modal

@@ -1,21 +1,22 @@
-
 .form-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     align-items: center;
     margin-bottom: 100px;
-   
- 
+
+
 }
+
 .headline {
-   font-size: 2rem;
-   margin-top: 20px;
-   margin-bottom: 30px;
-  
-  
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+
 }
+
 .contact-form {
     display: flex;
     flex-wrap: wrap;
@@ -26,7 +27,8 @@
     border: 2px solid black;
 
 }
-.form-label{
+
+.form-label {
     font-size: 1.3rem;
     padding: 10px;
     margin-top: 10px;
@@ -37,12 +39,13 @@
     width: 60%;
     height: 30px;
 }
+
 #text-area {
     width: 80%;
     height: 230px;
 }
 
-.send-btn{
+.send-btn {
     margin-top: 30px;
     padding: 20px;
     border-radius: 50px;

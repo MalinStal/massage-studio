@@ -6,7 +6,7 @@
 }
 
 body {
-  
+
     min-height: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
@@ -15,10 +15,10 @@ body {
 
 :root {
 
-    --background-header:rgba(213, 203, 171, 0.557);
+    --background-header: rgba(213, 203, 171, 0.557);
     --background-main: rgba(226, 226, 218, 0.806);
- 
-   
+
+
 
 }
 
@@ -28,6 +28,6 @@ body {
     margin-left: 44%;
     position: fixed;
     background-color: white;
-    border-radius:50%;
-    
+    border-radius: 50%;
+
 }

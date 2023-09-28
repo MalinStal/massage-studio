@@ -1,89 +1,98 @@
+.home-section {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
 
-.home-section{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-   
-    margin: 20px;
-    padding: 20px;
+   margin: 20px;
+   padding: 20px;
 }
+
 .home-artical {
-    padding: 20px;
-    border: 1px solid;
-    margin-bottom: 40px;
-    background-color: white;
+   padding: 20px;
+   border: 1px solid;
+   margin-bottom: 40px;
+   background-color: white;
 }
-.h3-headline {
-    margin-bottom: 20px;
-}
-.h4-headline {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
- .home-ul {
-    margin-bottom: 20px;
-    list-style: none;
- }
- .home-li {
-    text-decoration: none;
-    padding: 6px;
- }
- .table-pricelist {
-    border: 1px solid;
-    padding: 20px;
-    background-color: white;
- }
- .table-pricelist td {
-    border: 1px solid;
-    padding: 20px;
- }
-.massage-img{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-}
- /*---------------------- comment section --------------------*/
- 
- .resention-headline {
-    margin-bottom: 30px;
- }
- .comment-section{
-    padding: 20px;
-    display: flex;
-    
-   
-    justify-content: center;
-    background-color: white;
-    border: 1px solid;
 
- }
- .scrolldiv {
-    width: 100%;
-    height: 160px;
-    overflow-x: scroll;
-  scroll-behavior: smooth;
-    display: flex;
-    flex-wrap: wrap;
-   
-    justify-content: center;
- }
- 
- .comment-div {
-    margin: 20px;
-    padding: 10px;
+.h3-headline {
+   margin-bottom: 20px;
+}
+
+.h4-headline {
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+.home-ul {
+   margin-bottom: 20px;
+   list-style: none;
+}
+
+.home-li {
+   text-decoration: none;
+   padding: 6px;
+}
+
+.table-pricelist {
+   border: 1px solid;
+   padding: 20px;
+   background-color: white;
+}
+
+.table-pricelist td {
+   border: 1px solid;
+   padding: 20px;
+}
+
+.massage-img {
+   width: 250px;
+   height: 250px;
+   border-radius: 50%;
+}
+
+/*---------------------- comment section --------------------*/
+
+.resention-headline {
+   margin-bottom: 30px;
+}
+
+.comment-section {
+   padding: 20px;
+   display: flex;
+
+
+   justify-content: center;
+   background-color: white;
+   border: 1px solid;
+
+}
+
+.scrolldiv {
+   width: 100%;
+   height: 160px;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+   display: flex;
+   flex-wrap: wrap;
+
+   justify-content: center;
+}
+
+.comment-div {
+   margin: 20px;
+   padding: 10px;
    display: flex;
    flex-wrap: wrap;
    flex-direction: column;
-    width: 200px;
-    height: 100px;
-  background-color:antiquewhite ;
- }
+   width: 200px;
+   height: 100px;
+   background-color: antiquewhite;
+}
 
- .comment-img {
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-   
- }
- 
+.comment-img {
+   width: 30px;
+   height: 30px;
+   background-color: white;
+   border-radius: 50px;
+
+}

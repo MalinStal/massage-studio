@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useRecoilValue, useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   choiceOfTreatment,
   bookingInformationPerson,
@@ -11,17 +11,40 @@ import {
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
 import logo from "../../pictures/massage-logo.png";
-//import { Formtest } from "../../components/formtest";
-//ATT GÖRA I DENNA FIL
-//skapa ett formulär för den valda tiden att boka med kontakt uppgifter
-//gör den funktionel och spara kunden i lokalstorage elelr spara bara den bokade tiden i local storge. det viktga är att den bokade tiden försvinner från kaländenr.
+
 export default function Boka3() {
   const [data, setData] = useRecoilState(bookingInformationPerson);
-
-  const [boking, setBoking] = useState([]);
+  const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
   const [id,setId] = useRecoilState(createIdState)
-  const [bookInfo, setBookinfo] = useRecoilState(choiceOfTreatment);
 
+
+  /*   use this kode ore simuler to delet the chosen apointment from the list on booking
+  
+  const deleteByValue = (setThisState, value) => {
+    setThisState(oldValues => {
+      return oldValues.filter(time => time !== value)
+    })
+  }
+  if(booking.info.length === "30 minuter"){
+  if(bookingInfo.day === "Lördag"){
+    deleteByValue(setBookingSaturday, bookingInfo.time)
+  }else{
+     deleteByValue(setBookingweekday)
+  }}  else if(booking.info.length === "60 minuter"){
+  if(bookingInfo.day === "Lördag"){
+    deleteByValue(setBookingSaturday, bookingInfo.time)
+  }else{
+     deleteByValue(setBookingweekday)
+  }} else if(bookingInfo.length === 90 minuter ) {
+  if(bookingInfo.day === "Lördag"){
+    deleteByValue(setBookingSaturday, bookingInfo.time)
+  }else{
+     deleteByValue(setBookingweekday)
+  }}
+  
+  */
+ 
+ 
   const handelChange = (event) => {
     const { name, value } = event.target;
     setData((data) => ({ ...data, [name]: value }));
@@ -33,7 +56,7 @@ export default function Boka3() {
     const adress = data.adress;
     const postnummer = data.postnummer;
     const stad = data.stad;
-       setBookinfo((data) => ({
+       setBookingInfo((data) => ({
       ...data,
       namn,
       efternamn,
@@ -45,28 +68,17 @@ export default function Boka3() {
     }));
   };
 
-  // ger ut ett id random för att kunna spara bokningen i lokal storage
-  //const id = "booking" + Math.floor(Math.random() * 100);
-
-  //för att kunna spara alla värden från bokningen så måste vi få in alla värdena från bokningen in i en objekt lista
   const handelSubmit = (e) => {
     e.preventDefault();
-   
-
-      setId((prevId) => prevId + 1);
-  
-
-    saveBooking(id, bookInfo);
-
+    setId((prevId) => prevId + 1);
+    saveBooking(id, bookingInfo);
     setIsOpen(true);
   };
-
-  //--------------- conected to the data from bookingInformation ----------
-  const bookingInfo = useRecoilValue(choiceOfTreatment);
 
   // ------------------------ modal ----------------------------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
   const navigate = useNavigate();
+
   const closeModal = () => {
     setData({
       namn: "",
@@ -87,7 +99,7 @@ export default function Boka3() {
         <div className="modal-text">
           Tack {bookingInfo.namn} för din bokning! <br></br>
           {`${bookingInfo.length} ${bookingInfo.treatment}  
-      ${bookingInfo.date} klockan:  ${bookingInfo.time}`}
+          ${bookingInfo.date} klockan:  ${bookingInfo.time}`}
           <br></br>
           Bekräftelse skickas till din mail {bookingInfo.mail}
         </div>
@@ -97,19 +109,16 @@ export default function Boka3() {
         <section className="booking-info-section">
           <h3 className="booking-info-h3">Din valda bokning: </h3>
           <span className="booking-info-span">
-            {`${bookingInfo.length}
-              ${bookingInfo.treatment}
-             `}{" "}
+            {`${bookingInfo.length} ${bookingInfo.treatment}`}{" "}
           </span>
-
-          <span className="booking-info-span">{` 
-            ${bookingInfo.date} klockan : ${bookingInfo.time}`}</span>
+          <span className="booking-info-span">{` ${bookingInfo.day}
+            ${bookingInfo.date} klockan : ${bookingInfo.time}`}
+          </span>
 
           <span className="booking-info-span">hos: Malin S</span>
         </section>
         <label className="form-label">Namn</label>
         <input
-          autoFocus
           required
           type="text"
           className="form-input"
@@ -158,7 +167,6 @@ export default function Boka3() {
         <input
           type="number"
           required
-         
           className="form-input"
           name="postnummer"
           value={data.postnummer}
@@ -172,14 +180,7 @@ export default function Boka3() {
           value={data.stad}
           onChange={handelChange}
         />
-        <select className="form-label">
-          <option> Välj betalmetod</option>
-          <option>Kontokort</option>
-          <option>Swish</option>
-          <option>Epassi</option>
-          <option>Rabattkort</option>
-        </select>
-        <button className="boka-btn serch-btn">boka</button>
+        <button className="boka-btn serch-btn">Boka</button>
       </form>
     </main>
   );

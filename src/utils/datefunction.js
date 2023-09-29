@@ -1,5 +1,5 @@
 import React from "react";
-
+// get the current date 
 export function dateFunction() {
   const newDate = new Date(); 
   const day = newDate.getDate().toString().padStart(2, 0);
@@ -9,7 +9,7 @@ export function dateFunction() {
   return currentDate;
 }
 
-
+// get the weekday
 export function getWeekday(dateFormat) {
   let newDate = new Date(dateFormat);
 
@@ -26,7 +26,7 @@ export function getWeekday(dateFormat) {
 
   return day;
 }
-
+//get the time 
 export function getLocalTime() {
   const newDate= new Date()
   const hours = newDate.getHours().toString().padStart(2,0);
@@ -35,7 +35,7 @@ export function getLocalTime() {
   return timeIs
 }
 
-
+//code to change date to the next day
 export function nextDay(date, one){
 
   const newDate = new Date(date);

@@ -7,7 +7,6 @@ import { getWeekday, dateFunction  } from "../../utils/datefunction";
 import { chooseTime, chooseTreatment } from "../../utils/constants";
 
 
-
 export default function Boka({style}) {
 
   const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
@@ -32,12 +31,11 @@ export default function Boka({style}) {
     e.preventDefault();
     navigate("/Boka2");
   };
-
  
   return (
     <>
     <main  className={style} >
-      <form  className={"boknings-form"} onSubmit={handelSubmit}>
+      <form className={"boknings-form"} onSubmit={handelSubmit}>
         {getWeekday(bookingInfo.date)}
         <label className="form-label"> Välj datum: </label>
         <input  

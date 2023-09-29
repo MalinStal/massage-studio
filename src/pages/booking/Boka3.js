@@ -11,6 +11,7 @@ import {
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
 import logo from "../../pictures/massage-logo.png";
+import { changeDateOutput } from "../../utils/constants";
 
 export default function Boka3() {
   const [data, setData] = useRecoilState(bookingInformationPerson);
@@ -99,7 +100,7 @@ export default function Boka3() {
         <div className="modal-text">
           Tack {bookingInfo.namn} för din bokning! <br></br>
           {`${bookingInfo.length} ${bookingInfo.treatment}  
-          ${bookingInfo.date} klockan:  ${bookingInfo.time}`}
+          ${changeDateOutput(bookingInfo.date)} klockan:  ${bookingInfo.time}`}
           <br></br>
           Bekräftelse skickas till din mail {bookingInfo.mail}
         </div>
@@ -112,7 +113,7 @@ export default function Boka3() {
             {`${bookingInfo.length} ${bookingInfo.treatment}`}{" "}
           </span>
           <span className="booking-info-span">{` ${bookingInfo.day}
-            ${bookingInfo.date} klockan : ${bookingInfo.time}`}
+            ${changeDateOutput(bookingInfo.date)} klockan : ${bookingInfo.time}`}
           </span>
 
           <span className="booking-info-span">hos: Malin S</span>

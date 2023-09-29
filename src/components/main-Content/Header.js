@@ -1,8 +1,7 @@
-import React, { Children } from 'react'
+import React from 'react'
 import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
 import logo from '../../pictures/massage-logo.png'
-
 
 export default function Header() {
 

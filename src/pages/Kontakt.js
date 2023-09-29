@@ -39,7 +39,7 @@ export default function Kontakt() {
         <div>
           Hej {formData.name}! Tack för ditt meddelande. <br></br>Vi svarar inom
           24 timmar.
-        </div>{" "}
+        </div>
       </Modal>
 
       <section className="form-section">
@@ -75,7 +75,6 @@ export default function Kontakt() {
             onChange={handelChange}
           ></textarea>
           <button className="send-btn boka-btn" type="submit">
-            {" "}
             Skicka
           </button>
         </form>

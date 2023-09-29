@@ -1,11 +1,9 @@
 import React from 'react'
 import style from './Header-Footer.css'
 import { Link } from 'react-router-dom'
-import Form from '../Form'
 import logo from '../../pictures/massage-logo.png'
 
 import { FacebookLogo, InstagramLogo, LinkedinLogo} from '@phosphor-icons/react'
-
 
 export default function Footer() {
   return (

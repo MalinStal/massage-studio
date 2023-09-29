@@ -25,8 +25,6 @@ export default function Addminpage() {
     );
   });
 
- 
-
   return (
     <div className="addminpage">
       <table className="table-pricelist table-bookings">
@@ -44,7 +42,6 @@ export default function Addminpage() {
         </tbody>
        
       </table>
-
 
     </div>
   );

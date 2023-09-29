@@ -1,5 +1,5 @@
 import style from "./App.css";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Header from "./components/main-Content/Header";
 import Footer from "./components/main-Content/Footer";
@@ -34,19 +34,19 @@ function App() {
       behavior: "smooth",
     });
   };
-  const navigate= useNavigate()
-  const b4 = navigate.pathname === "/Boka";
+
   const b1 = location.pathname === "/Boka";
   const b2 = location.pathname === "/Boka2";
   const b3 = location.pathname === "/Boka3";
-  const NoShow =  b1 + b2 + b3;
+  const b4 = location.pathname === "/addminpage";
+  const NoShow = b1 + b2 + b3 + b4;
 
 
   return (
     <>
       <Header />
 
-      {!NoShow && (<Main />)}
+      <Main />
       <ArrowCircleUp size={32} className="Arrow-up" onClick={scrollBackTop} />
       <Routes >
         <Route index element={<Hem />} />

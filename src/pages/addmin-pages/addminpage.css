@@ -35,3 +35,14 @@
 .addminpage-bookings{
   margin-bottom: 20px;
 }
+
+.input-div-klient-search{
+  margin: 50px;
+}
+.input-klient-search {
+  width: 70%;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  background-color: beige;
+}

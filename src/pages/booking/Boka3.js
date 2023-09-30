@@ -6,7 +6,7 @@ import {
   choiceOfTreatment,
   bookingInformationPerson,
   modalIsOpen,
-  createIdState
+  createIdState,
 } from "../../recoilstate/atoms";
 import { saveBooking } from "../../storage/local-storage";
 import Modal from "../../components/modal";
@@ -17,33 +17,6 @@ export default function Boka3() {
   const [data, setData] = useRecoilState(bookingInformationPerson);
   const [bookingInfo, setBookingInfo] = useRecoilState(choiceOfTreatment);
   const [id,setId] = useRecoilState(createIdState)
-
-
-  /*   use this kode ore simuler to delet the chosen apointment from the list on booking
-  
-  const deleteByValue = (setThisState, value) => {
-    setThisState(oldValues => {
-      return oldValues.filter(time => time !== value)
-    })
-  }
-  if(booking.info.length === "30 minuter"){
-  if(bookingInfo.day === "Lördag"){
-    deleteByValue(setBookingSaturday, bookingInfo.time)
-  }else{
-     deleteByValue(setBookingweekday)
-  }}  else if(booking.info.length === "60 minuter"){
-  if(bookingInfo.day === "Lördag"){
-    deleteByValue(setBookingSaturday, bookingInfo.time)
-  }else{
-     deleteByValue(setBookingweekday)
-  }} else if(bookingInfo.length === 90 minuter ) {
-  if(bookingInfo.day === "Lördag"){
-    deleteByValue(setBookingSaturday, bookingInfo.time)
-  }else{
-     deleteByValue(setBookingweekday)
-  }}
-  
-  */
  
  
   const handelChange = (event) => {
@@ -67,6 +40,8 @@ export default function Boka3() {
       postnummer,
       stad,
     }));
+
+  
   };
 
   const handelSubmit = (e) => {

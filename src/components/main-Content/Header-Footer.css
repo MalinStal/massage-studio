@@ -1,7 +1,8 @@
 /*---------------- header style----------------------------------------*/
 .header {
-    background: var(--background-header);
 
+    background: linear-gradient(to right, rgba(231, 214, 161, 0.893), rgba(247, 234, 194, 0.555));
+    background-repeat: no-repeat, no-repeat, no-repeat;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
 
@@ -15,6 +16,7 @@
     box-shadow: 1px 1px 1px 1px rgba(183, 175, 131, 0.572);
 
 }
+
 
 .logo-name {
     text-align: center;
@@ -65,8 +67,7 @@
     bottom: 0;
     width: 100%;
     margin-top: auto;
-    background: var(--background-header);
-    text-transform: uppercase;
+    background: linear-gradient(to right, rgba(231, 214, 161, 0.893), rgba(247, 234, 194, 0.555));    text-transform: uppercase;
     bottom: 0;
     width: 100%;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.249);

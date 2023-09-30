@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import React, { useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import style from "./modal-comments.css";
 import {
   getCommentsState,
@@ -13,19 +13,13 @@ import { getComments, getUsers, addComments } from "../API/fetch";
 import logo from '../pictures/massage-logo.png'
 
 export function Comments() {
-  const [comments, setComments] = useRecoilState(getCommentsState);
-  const [users, setUsers] = useRecoilState(getUsersState);
+  const comments = useRecoilValue(getCommentsState);
+  const users = useRecoilValue(getUsersState);
   const [newComment, setNewComment] = useState([]);
   
   const [input, setInput] = useState({ namn: "", recension: "" });
   const [namn,setNamn] =useState([]);
   
-  useEffect(() => {
-    getComments().then((result) => setComments(result.comments));
-    getUsers().then((result) => setUsers(result.users));
-  }, []);
-
-
   // ---------------- code for modal ---------------------------------
 
   const [isOpen, setIsopen] = useRecoilState(modalIsOpen);

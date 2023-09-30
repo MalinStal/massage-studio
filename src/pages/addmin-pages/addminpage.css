@@ -17,3 +17,21 @@
 .kund-info-ul, li {
     padding: 5px;
 }
+.table-bookings{
+  border: 1px solid;
+  padding: 20px;  border: 2px solid;
+
+}
+.table-bookings td{ 
+  border: 1px solid;
+  padding: 10px;
+
+}
+.table-bookings th{ 
+  border: 1px solid;
+  padding: 20px;
+
+}
+.addminpage-bookings{
+  margin-bottom: 20px;
+}

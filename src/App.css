@@ -14,9 +14,7 @@ body {
 }
 
 :root {
-
-    --background-header: rgba(213, 203, 171, 0.557);
-    --background-main: rgba(226, 226, 218, 0.806);
+    --background-main: rgba(245, 245, 245, 0.806);
 
 
 

@@ -17,7 +17,7 @@ export default function Boka2() {
   { <div className="div-booking-schedule">
       <section>
         <h3 className="booking-date-headline">
-          {bookingInfo.day + " " + changeDateOutput(bookingInfo.date)}{" "}
+          {bookingInfo.day + " " + bookingInfo.date}{" "}
         </h3>
         <ul className="render-booking-ul">{GetTimeScadual()}</ul>
       </section>

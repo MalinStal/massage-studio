@@ -1,6 +1,7 @@
 import style from "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 
+
 import Header from "./components/main-Content/Header";
 import Footer from "./components/main-Content/Footer";
 import Main from "./components/main-Content/Main";
@@ -8,6 +9,7 @@ import Main from "./components/main-Content/Main";
 import Hem from "./pages/Hem";
 import Behandling from "./pages/Behandling";
 import Addminpage from "./pages/addmin-pages/addminpage";
+import Klientlist from "./pages/addmin-pages/addmin-klientlist";
 import Boka from "./pages/booking/Boka";
 import Boka2 from "./pages/booking/Boka2";
 import Boka3 from "./pages/booking/Boka3";
@@ -19,9 +21,22 @@ import { useRecoilState } from "recoil";
 import { modalIsOpen } from "./recoilstate/atoms";
 import { Comments } from "./components/coments";
 
+import { getCommentsState, getUsersState } from "./recoilstate/atoms";
+import { getComments, getUsers } from "./API/fetch";
+
 function App() {
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen)
+  
+  const [comments, setComments] = useRecoilState(getCommentsState);
+  const [users, setUsers] = useRecoilState(getUsersState);
+ 
+  
   const location = useLocation()
+
+    useEffect(() => {
+    getComments().then((result) => setComments(result.comments));
+    getUsers().then((result) => setUsers(result.users));
+  }, []);
 
   useEffect(() => {
     if (isOpen == true) setIsOpen(false)
@@ -56,6 +71,7 @@ function App() {
         <Route path="/Boka3" element={<Boka3 />} />
         <Route path="/Kontakt" element={<Kontakt />} />
         <Route path="/addminpage" element={<Addminpage />} />
+        <Route path="/klientlist" element={<Klientlist />} />
       </Routes>
       <section className="home-section">
       {!NoShow && <Comments />}

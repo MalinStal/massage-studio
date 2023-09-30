@@ -17,13 +17,22 @@ export default function Boka({style}) {
   const navigate = useNavigate();
  
   //-------handel change and submit ------------
-  const handelChange = (e) => {
+  const handelChangeDay = (e) => {
     const { name, value } = e.target;
 
     setBookingInfo((option) => ({
       ...option,
       [name]: value,
       ["day"]: (getWeekday(value)),
+    }));
+  };
+  const handelChange = (e) => {
+    const { name, value } = e.target;
+
+    setBookingInfo((option) => ({
+      ...option,
+      [name]: value
+     
     }));
   };
   
@@ -45,7 +54,7 @@ export default function Boka({style}) {
           type="date"
           name="date"
           value={bookingInfo.date}
-          onChange={handelChange}
+          onChange={handelChangeDay}
         />
 
         <label className="form-label"> Välj behandling:</label>

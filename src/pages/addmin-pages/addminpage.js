@@ -1,13 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { fetchBooking, getAllInStorage } from "../../storage/local-storage";
+import { getAllInStorage } from "../../storage/local-storage";
 import style from './addminpage.css'
 
 export default function Addminpage() {
   const bookings = getAllInStorage;
   const [data, setData] = useState(bookings);
+ 
+ 
+  const data2=data.sort((a,b) =>{ return new Date(a.date) - new Date(b.date);})
 
-  const renderData = data.map((value, index) => {
+  const renderData = data2.map((value, index) => {
    return (
       <tr key={index}>
         <td>{value?.time}</td>
@@ -24,10 +27,12 @@ export default function Addminpage() {
       </tr>
     );
   });
-
+ 
   return (
     <div className="addminpage">
-      <table className="table-pricelist table-bookings">
+
+      <h2 className="addminpage-bookings"> Klient bokningar </h2>
+      <table className=" table-bookings">
         <thead>
         <tr>
           <th>tid</th>
@@ -42,7 +47,7 @@ export default function Addminpage() {
         </tbody>
        
       </table>
-
+      {/*<button onClick={}> Sök kund</button>*/}
     </div>
   );
 }

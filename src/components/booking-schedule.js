@@ -11,7 +11,6 @@ import {
 } from "../recoilstate/atoms";
 import malin from "../pictures/malin.jpg";
 import { useNavigate } from "react-router-dom";
-import { getLocalTime, nextDay } from "../utils/datefunction";
 
 export function GetTimeScadual() {
   const time30 = useRecoilValue(freeTimes30WeekDay);
@@ -26,7 +25,6 @@ export function GetTimeScadual() {
 
   const handelClick = (time) => {
     setBookingInfo(time);
-  
     navigate("/Boka3");
   };
 
@@ -36,140 +34,57 @@ export function GetTimeScadual() {
     borderRadius: "50px",
   };
 
-  if (bookingInfo.day == "Lördag") {
-    if (bookingInfo.length === "30 minuter") {
-      const timeList30 = time30S.map((time, key) => {
-        return (
-          <li key={key} className="render-booking-li">
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => {handelClick({ ...bookingInfo, time: time });}}
-            >
-              Boka
-            </button>
-          </li>
-        );
-      });
-
-      return timeList30;
-    } else if (bookingInfo.length === "60 minuter") {
-      const timeList60 = time60S.map((time, key) => {
-        return (
-          <li key={key} className="render-booking-li">
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => handelClick({ ...bookingInfo, time: time })}
-            >
-              Boka
-            </button>
-          </li>
-        );
-      });
-
-      return timeList60;
-    } else if (bookingInfo.length === "90 minuter") {
-      const timeList90 = time90S.map((time, key) => {
-        return (
-          <li className="render-booking-li" key={key}>
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => handelClick({ ...bookingInfo, time: time })}
-            >
-              Boka
-            </button>
-          </li>
-        );
-      });
-
-      return timeList90;
-    }
+  function RenderBookings(props) {
+    return props.mapList.map((time, key) => {
+      return (
+        <li key={key} className="render-booking-li">
+          <span>{time} </span>
+          <span>{bookingInfo.treatment}</span>
+          <span>{bookingInfo.length}</span>
+          <span>
+            Malin <img src={malin} style={style} />
+          </span>
+          <button
+            className="render-booking-btn"
+            onClick={() => {
+              handelClick({ ...bookingInfo, time: time });
+            }}
+          >
+            Boka
+          </button>
+        </li>
+      );
+    });
   }
-  else if (bookingInfo.day == "Söndag") {
-    return (
-      <div> Söndagar har vi tyvärr stängt, sök gärna på en annan dag! </div>
-    );
+
+  if (bookingInfo.day === "Lördag") {
+    if (bookingInfo.length === "30 minuter") {
+      const timeList30 = <RenderBookings mapList={time30S} />;
+      return timeList30;
+      
+    } else if (bookingInfo.length === "60 minuter") {
+      const timeList60 = <RenderBookings mapList={time60S} />;
+      return timeList60;
+
+    } else if (bookingInfo.length === "90 minuter") {
+      const timeList90 = <RenderBookings mapList={time90S} />;
+      return timeList90;
+
+    }
+  } else if (bookingInfo.day == "Söndag") {
+    return <div> Söndagar har vi tyvärr stängt, sök gärna tid en annan dag! </div>
+
   } else {
     if (bookingInfo.length === "30 minuter") {
-      const timeList30 = time30.map((time, key) => {
-        return (
-          <li key={key} className="render-booking-li">
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => {handelClick({ ...bookingInfo, time: time }); }}
-            >
-             Boka
-            </button>
-          </li>
-        );
-      });
-
+      const timeList30 = <RenderBookings mapList={time30S} />;
       return timeList30;
+
     } else if (bookingInfo.length === "60 minuter") {
-      const timeList60 = time60.map((time, key) => {
-        return (
-          <li key={key} className="render-booking-li">
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => handelClick({ ...bookingInfo, time: time })}
-            >
-              {" "}
-              Boka
-            </button>
-          </li>
-        );
-      });
-
+      const timeList60 = <RenderBookings mapList={time60} />;
       return timeList60;
-    } else if (bookingInfo.length === "90 minuter") {
-      const timeList90 = time90.map((time, key) => {
-        return (
-          <li className="render-booking-li" key={key}>
-            <span>{time} </span>
-            <span>{bookingInfo.treatment}</span>
-            <span>{bookingInfo.length}</span>
-            <span>
-              Malin <img src={malin} style={style} />
-            </span>
-            <button
-              className="render-booking-btn"
-              onClick={() => handelClick({ ...bookingInfo, time: time })}
-            >
-              Boka
-            </button>
-          </li>
-        );
-      });
 
+    } else if (bookingInfo.length === "90 minuter") {
+      const timeList90 = <RenderBookings mapList={time90} />;
       return timeList90;
     }
   }

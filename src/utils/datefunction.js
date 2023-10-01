@@ -26,6 +26,9 @@ export function getWeekday(dateFormat) {
 
   return day;
 }
+
+
+
 //get the time 
 export function getLocalTime() {
   const newDate= new Date()

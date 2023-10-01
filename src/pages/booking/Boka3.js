@@ -49,8 +49,9 @@ export default function Boka3() {
     setId((prevId) => prevId + 1);
     saveBooking(id, bookingInfo);
     setIsOpen(true);
+    console.log(id)
   };
-
+console.log(id)
   // ------------------------ modal ----------------------------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
   const navigate = useNavigate();

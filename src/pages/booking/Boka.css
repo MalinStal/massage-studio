@@ -2,27 +2,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    padding: 60px;
     margin: 60px;
-
+    background-color: rgba(255, 255, 255, 0.515);
     border: 1px solid;
     margin-bottom: 50px;
-    background: white;
+
+
 
 }
+
+.boknings-form-main {
+    width: 80%;
+    padding: 30px;
+    border: 2px solid;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    margin: 60px; 
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)), url('../../pictures/massage-rum.jpg');
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
 
 .serch-btn {
     margin-top: 60px;
     width: 300px;
-    background-color: beige;
+    background-color: rgba(255, 255, 255, 0.882);
+
 }
 
 .form-input {
     width: 80%;
     padding: 10px;
-    background-color: beige;
+    background-color: rgba(238, 238, 232, 0.808);
     border: none;
     border-radius: 20px;
+
 }
 
 .modal-text {
@@ -59,9 +79,10 @@
 .render-booking-li {
     margin-bottom: 10px;
     padding: 7px;
-    width: 60%;
+    width: 80%;
     background: white;
     border-radius: 20px;
+    font-size: 1.4rem;
 
 }
 
@@ -74,10 +95,10 @@
 .render-booking-btn {
     border-radius: 20px;
     padding: 7px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     border: none;
     align-items: center;
-    background: rgb(243, 240, 229);
+    background: rgb(242, 240, 237);
 
 }
 

@@ -34,7 +34,7 @@ export default function Klientlist() {
         <>
             <div className="addminpage">
                 <div className='input-div-klient-search'>
-
+                    <label>Sök Klient på telefonnummer</label>
                     <input
                         className='input-klient-search'
                         placeholder='sök klient här'

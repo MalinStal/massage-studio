@@ -76,7 +76,7 @@ export function GetTimeScadual() {
 
   } else {
     if (bookingInfo.length === "30 minuter") {
-      const timeList30 = <RenderBookings mapList={time30S} />;
+      const timeList30 = <RenderBookings mapList={time30} />;
       return timeList30;
 
     } else if (bookingInfo.length === "60 minuter") {

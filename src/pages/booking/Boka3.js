@@ -82,7 +82,7 @@ console.log(id)
         </div>
       </Modal>
 
-      <form className="boknings-form" onSubmit={handelSubmit}>
+      <form className="boknings-form boknings-form-3" onSubmit={handelSubmit}>
         <section className="booking-info-section">
           <h3 className="booking-info-h3">Din valda bokning: </h3>
           <span className="booking-info-span">

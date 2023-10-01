@@ -1,17 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
 
 import style from "./Kontakt.css";
-
-import { modalIsOpen } from "../recoilstate/atoms";
 import Modal from "../components/modal";
 import logo from "../pictures/massage-logo.png";
 
 
 export default function Kontakt() {
-  const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
-
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", mail: "", text: "" });
 
   const handelChange = (event) => {

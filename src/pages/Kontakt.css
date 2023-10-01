@@ -25,6 +25,7 @@
     padding: 30px;
     width: 80%;
     border: 2px solid black;
+    background: linear-gradient(to right, rgba(231, 214, 161, 0.175), rgba(247, 234, 194, 0.86));
 
 }
 
@@ -33,11 +34,6 @@
     padding: 10px;
     margin-top: 10px;
 
-}
-
-.input {
-    width: 60%;
-    height: 30px;
 }
 
 #text-area {

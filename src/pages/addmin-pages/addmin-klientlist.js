@@ -6,8 +6,6 @@ export default function Klientlist() {
     const [users, setUsres] = useRecoilState(getUsersState);
     const [input, setInput] = useState("")
     
-
-
     function filterTheList() {
         return users.filter((users => {
             return input.toLowerCase() === "" ? users : users.phone.toLowerCase().includes(input)

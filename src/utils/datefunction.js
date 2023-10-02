@@ -26,27 +26,3 @@ export function getWeekday(dateFormat) {
 
   return day;
 }
-
-
-
-//get the time 
-export function getLocalTime() {
-  const newDate= new Date()
-  const hours = newDate.getHours().toString().padStart(2,0);
-  const minutes = newDate.getMinutes().toString().padStart(2,0);
-  const timeIs= `${hours} ${minutes}`
-  return timeIs
-}
-
-//code to change date to the next day
-export function nextDay(date, one){
-
-  const newDate = new Date(date);
-
-  const day = (newDate.getDate()+ one).toString().padStart(2, 0);
-  const month = (newDate.getMonth() + 1).toString().padStart(2, 0);
-  const year = newDate.getFullYear();
-  const anotherday = `  ${year}-${month}-${day}`;
-
-return anotherday;
-}

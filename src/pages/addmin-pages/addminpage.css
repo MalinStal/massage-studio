@@ -18,6 +18,7 @@
     padding: 5px;
 }
 .table-bookings{
+  
   border: 1px solid;
   padding: 20px;  border: 2px solid;
 
@@ -45,4 +46,13 @@
   border: none;
   border-radius: 50px;
   background-color: beige;
+}
+.button-render-klientlist{
+  margin-top: 40px;
+  padding: 20px;
+  width: 100px;
+  background-color: white;
+  border-radius: 30px;
+
+
 }

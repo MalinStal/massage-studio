@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { getAllInStorage } from "../../storage/local-storage";
 import style from './addminpage.css'
+import { useNavigate } from "react-router-dom";
 
 export default function Addminpage() {
   const bookings = getAllInStorage;
@@ -9,6 +10,9 @@ export default function Addminpage() {
  
  
   const data2=data.sort((a,b) =>{ return new Date(a.date) - new Date(b.date);})
+
+  const navigate = useNavigate();
+  const handelClick= () => { navigate('/klientlist')}
 
   const renderData = data2.map((value, index) => {
    return (
@@ -47,7 +51,8 @@ export default function Addminpage() {
         </tbody>
        
       </table>
-      {/*<button onClick={}> Sök kund</button>*/}
+      
+      <button onClick={handelClick} className="button-render-klientlist">Sök kund</button>
     </div>
   );
 }

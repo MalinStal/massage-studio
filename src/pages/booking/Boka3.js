@@ -49,9 +49,9 @@ export default function Boka3() {
     setId((prevId) => prevId + 1);
     saveBooking(id, bookingInfo);
     setIsOpen(true);
-    console.log(id)
+   
   };
-console.log(id)
+
   // ------------------------ modal ----------------------------------
   const [isOpen, setIsOpen] = useRecoilState(modalIsOpen);
   const navigate = useNavigate();
@@ -115,7 +115,7 @@ console.log(id)
         <label className="form-label">E-mail</label>
         <input
           type="email"
-          required
+         
           className="form-input"
           name="mail"
           value={data.mail}
@@ -134,7 +134,7 @@ console.log(id)
         <label className="form-label">Adress</label>
         <input
           type="text"
-          required
+         
           className="form-input"
           name="adress"
           value={data.adress}
@@ -143,7 +143,7 @@ console.log(id)
         <label className="form-label">Postnummer</label>
         <input
           type="number"
-          required
+          
           className="form-input"
           name="postnummer"
           value={data.postnummer}
@@ -151,7 +151,7 @@ console.log(id)
         />
         <label className="form-label">Stad</label>
         <input
-          required
+          
           className="form-input"
           name="stad"
           value={data.stad}

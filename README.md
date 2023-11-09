@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# hemsida för  massage studio
+har skaapt en hemsida för en massage studio med ett simpelt bokningssystem som visuelt är functionelt men är ej kopplat till databas utan hanterar bara boknings information med localstorage. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## inlämnings uppgift i JavaScript kurs 3 - React 
+Denna uppgift är praktisk och individuell. Den innehåller också ett redovisningsmoment för att nå VG nivå. Lycka till!
 
-## Available Scripts
+Bedömning
 
-In the project directory, you can run:
+IG, G & VG
+Om kraven för G inte uppnås bedöms uppgiften med IG.
 
-### `npm start`
+Krav för G:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Följ instruktionerna i beskrivningen
+    Formatera koden: Små misstag ignoreras men större fel ger IG (om du blir osäker så kan du fråga läraren)
+    Använd git för versionshantering
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Krav för VG:
 
-### `npm test`
+    Uppnå krav för G
+    Följ en valfri projektstruktur (namngivning på filer och mappar)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Du skall beskriva denna i förväg i projektplanen (mer information nedanför)
 
-### `npm run build`
+    Använd en av följande
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Routing
+    Global state
+    Context
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Redovisning (mer information nedanför)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Beskrivning
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Du skall i denna uppgift bygga ett valfritt React projekt utifrån en projektplan som du skriver. Följ mallen längst ned i dokumentet för projektplanen. Projektet skall vara av tillräcklig storlek och det bedöms av läraren genom projektplanen. Projektplanen ska skickas in till läraren genom omniway innan arbetet på projektet påbörjas och den måste godkännas. Om den inte godkänns så måste du tänka ut ett nytt projekt med en ny projektplan.
